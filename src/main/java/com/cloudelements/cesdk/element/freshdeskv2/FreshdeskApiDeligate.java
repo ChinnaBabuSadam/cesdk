@@ -1,7 +1,6 @@
 package com.cloudelements.cesdk.element.freshdeskv2;
 
 import com.cloudelements.cesdk.framework.AbstractElementService;
-import com.cloudelements.cesdk.service.Service;
 import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.cloudelements.cesdk.util.JacksonJsonUtil;
 import com.cloudelements.cesdk.util.ServiceConstants;
@@ -16,13 +15,10 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
 public class FreshdeskApiDeligate extends AbstractElementService {
 
@@ -202,7 +198,7 @@ public class FreshdeskApiDeligate extends AbstractElementService {
         try {
             String body = JacksonJsonUtil.convertMapToString(object);
             vendorResponse =
-                    Unirest.patch(urlBuilder.toString()).headers(getHeaders()).body(body).asBinary();
+                    Unirest.put(urlBuilder.toString()).headers(getHeaders()).body(body).asBinary();
         } catch (UnirestException ux) {
             throw new ServiceException(HttpStatus.INTERNAL_SERVER_ERROR, ux.getMessage());
         }

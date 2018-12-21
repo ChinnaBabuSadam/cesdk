@@ -1,7 +1,5 @@
 package com.cloudelements.cesdk.element.freshdeskv2;
 
-import com.cloudelements.cesdk.element.freshdeskv2.FreshdeskApiDeligate;
-import com.cloudelements.cesdk.service.Service;
 import com.cloudelements.cesdk.service.domain.PathParameters;
 import com.cloudelements.cesdk.service.domain.Request;
 import com.cloudelements.cesdk.service.domain.RequestMethod;
@@ -23,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,7 +44,6 @@ public class FreshDeskService extends HttpServlet {
     private static final String OBJECTS = "objects";
 
     private static final String AUTHORIZATION = "Authorization";
-    private static final String header = "Basic cGNUbFFSWEFnMVlXZHhEd3N4SVg6WA==";
 
     FreshdeskApiDeligate freshdeskApiDeligate;
 
@@ -57,15 +53,20 @@ public class FreshDeskService extends HttpServlet {
         super.init();
     }
 
-    @Override
-    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-
+    private void initDeligate(HttpServletRequest httpServletRequest) {
         freshdeskApiDeligate = new FreshdeskApiDeligate();
         Map<String, String> headers = new HashMap<>();
-        headers.put(AUTHORIZATION, header);
+        headers.put(AUTHORIZATION, httpServletRequest.getHeader(AUTHORIZATION));
         headers.put(ServiceConstants.ACCEPT, APPLICATION_JSON);
         headers.put(ServiceConstants.CONTENT_TYPE, APPLICATION_JSON);
         freshdeskApiDeligate.setHeaders(headers);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
+
+        initDeligate(httpServletRequest);
+
         try {
             processRequest(httpServletRequest, httpServletResponse);
         } catch (Exception e) {
@@ -84,6 +85,7 @@ public class FreshDeskService extends HttpServlet {
             }
         }
     }
+
 
     private void processRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 
@@ -205,7 +207,7 @@ public class FreshDeskService extends HttpServlet {
             throw new ServiceException(HttpStatus.METHOD_NOT_ALLOWED, "The given mehtod not yet supported");
         } catch (JsonParseException jx) {
             throw new ServiceException(HttpStatus.BAD_REQUEST,
-                    "The payload or the queryparameters map is not well defined");
+                    "The payload or the queryParameters map is not well defined");
         } catch (Exception e) {
             throw new ServiceException(HttpStatus.BAD_REQUEST,
                     "Unable to process the request.  Please make sure the request payload is bound to CE standards");
