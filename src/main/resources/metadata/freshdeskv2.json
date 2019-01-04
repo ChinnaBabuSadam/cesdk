@@ -1,0 +1,3065 @@
+[
+    {
+        "name": "contacts",
+        "fields": [
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "active",
+                "type": "boolean",
+                "updateable": true,
+                "vendorNativeType": "boolean",
+                "vendorPath": "active"
+            },
+            {
+                "createable": true,
+                "displayName": "Address",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "address",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "Address",
+                "vendorNativeType": "string",
+                "vendorPath": "address"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "avatar.avatar_url",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "avatar.avatar_url"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "avatar.content_type",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "avatar.content_type"
+            },
+            {
+                "createable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "avatar.created_at",
+                "type": "string",
+                "updateable": false,
+                "vendorNativeType": "string",
+                "vendorPath": "avatar.created_at",
+                "vendorReadOnly": true
+            },
+            {
+                "createable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "avatar.id",
+                "type": "number",
+                "updateable": false,
+                "vendorNativeType": "number",
+                "vendorPath": "avatar.id",
+                "vendorReadOnly": true
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "avatar.name",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "avatar.name"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "avatar.size",
+                "type": "number",
+                "updateable": true,
+                "vendorNativeType": "number",
+                "vendorPath": "avatar.size"
+            },
+            {
+                "createable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "avatar.updated_at",
+                "type": "string",
+                "updateable": false,
+                "vendorNativeType": "string",
+                "vendorPath": "avatar.updated_at",
+                "vendorReadOnly": true
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "company_id",
+                "type": "number",
+                "updateable": true,
+                "vendorNativeType": "number",
+                "vendorPath": "company_id"
+            },
+            {
+                "createable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "created_at",
+                "type": "string",
+                "updateable": false,
+                "vendorNativeType": "string",
+                "vendorPath": "created_at",
+                "vendorReadOnly": true
+            },
+            {
+                "path": "custom_fields",
+                "type": "object",
+                "vendorPath": "custom_fields"
+            },
+            {
+                "displayName": "Birthday",
+                "mask": "yyyy-MM-dd'T'HH:mm:ssXXX",
+                "path": "custom_fields.birthday",
+                "type": "date",
+                "vendorDisplayName": "Birthday",
+                "vendorPath": "custom_fields.birthday"
+            },
+            {
+                "displayName": "Bro-MultiLineText",
+                "path": "custom_fields.bromultilinetext",
+                "type": "string",
+                "vendorDisplayName": "Bro-MultiLineText",
+                "vendorPath": "custom_fields.bromultilinetext"
+            },
+            {
+                "displayName": "test_custom_field",
+                "path": "custom_fields.custom_field",
+                "type": "string",
+                "vendorDisplayName": "test_custom_field",
+                "vendorPath": "custom_fields.custom_field"
+            },
+            {
+                "displayName": "Favorite Color",
+                "path": "custom_fields.favorite_color",
+                "type": "string",
+                "vendorDisplayName": "Favorite Color",
+                "vendorPath": "custom_fields.favorite_color"
+            },
+            {
+                "displayName": "parentcustomerid",
+                "path": "custom_fields.parentcustomerid",
+                "type": "string",
+                "vendorDisplayName": "parentcustomerid",
+                "vendorPath": "custom_fields.parentcustomerid"
+            },
+            {
+                "displayName": "SFCONTACTID",
+                "path": "custom_fields.sfcontactid",
+                "type": "string",
+                "vendorDisplayName": "SFCONTACTID",
+                "vendorPath": "custom_fields.sfcontactid"
+            },
+            {
+                "displayName": "SFDC-ID",
+                "path": "custom_fields.sfdcid",
+                "type": "string",
+                "vendorDisplayName": "SFDC-ID",
+                "vendorPath": "custom_fields.sfdcid"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "deleted",
+                "type": "boolean",
+                "updateable": true,
+                "vendorNativeType": "boolean",
+                "vendorPath": "deleted"
+            },
+            {
+                "createable": true,
+                "displayName": "About",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "description",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "About",
+                "vendorNativeType": "string",
+                "vendorPath": "description"
+            },
+            {
+                "createable": true,
+                "displayName": "Email",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "email",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "Email",
+                "vendorNativeType": "string",
+                "vendorPath": "email"
+            },
+            {
+                "createable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "id",
+                "primaryKey": true,
+                "type": "number",
+                "updateable": false,
+                "vendorNativeType": "number",
+                "vendorPath": "id",
+                "vendorReadOnly": true
+            },
+            {
+                "createable": true,
+                "displayName": "Title",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "job_title",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "Title",
+                "vendorNativeType": "string",
+                "vendorPath": "job_title"
+            },
+            {
+                "choices": [
+                    {
+                        "id": "ar",
+                        "value": "Arabic"
+                    },
+                    {
+                        "id": "ca",
+                        "value": "Catalan"
+                    },
+                    {
+                        "id": "zh-CN",
+                        "value": "Chinese"
+                    },
+                    {
+                        "id": "zh-TW",
+                        "value": "Chinese (Traditional)"
+                    },
+                    {
+                        "id": "cs",
+                        "value": "Czech"
+                    },
+                    {
+                        "id": "da",
+                        "value": "Danish"
+                    },
+                    {
+                        "id": "nl",
+                        "value": "Dutch"
+                    },
+                    {
+                        "id": "en",
+                        "value": "English"
+                    },
+                    {
+                        "id": "et",
+                        "value": "Estonian"
+                    },
+                    {
+                        "id": "fi",
+                        "value": "Finnish"
+                    },
+                    {
+                        "id": "fr",
+                        "value": "French"
+                    },
+                    {
+                        "id": "de",
+                        "value": "German"
+                    },
+                    {
+                        "id": "he",
+                        "value": "Hebrew"
+                    },
+                    {
+                        "id": "hu",
+                        "value": "Hungarian"
+                    },
+                    {
+                        "id": "id",
+                        "value": "Indonesian"
+                    },
+                    {
+                        "id": "it",
+                        "value": "Italian"
+                    },
+                    {
+                        "id": "ja-JP",
+                        "value": "Japanese"
+                    },
+                    {
+                        "id": "ko",
+                        "value": "Korean"
+                    },
+                    {
+                        "id": "lv-LV",
+                        "value": "Latvian"
+                    },
+                    {
+                        "id": "nb-NO",
+                        "value": "Norwegian"
+                    },
+                    {
+                        "id": "pl",
+                        "value": "Polish"
+                    },
+                    {
+                        "id": "pt-BR",
+                        "value": "Portuguese (BR)"
+                    },
+                    {
+                        "id": "pt-PT",
+                        "value": "Portuguese/Portugal"
+                    },
+                    {
+                        "id": "ro",
+                        "value": "Romanian"
+                    },
+                    {
+                        "id": "ru-RU",
+                        "value": "Russian"
+                    },
+                    {
+                        "id": "sk",
+                        "value": "Slovak"
+                    },
+                    {
+                        "id": "sl",
+                        "value": "Slovenian"
+                    },
+                    {
+                        "id": "es",
+                        "value": "Spanish"
+                    },
+                    {
+                        "id": "es-LA",
+                        "value": "Spanish (Latin America)"
+                    },
+                    {
+                        "id": "sv-SE",
+                        "value": "Swedish"
+                    },
+                    {
+                        "id": "th",
+                        "value": "Thai"
+                    },
+                    {
+                        "id": "tr",
+                        "value": "Turkish"
+                    },
+                    {
+                        "id": "uk",
+                        "value": "Ukrainian"
+                    },
+                    {
+                        "id": "vi",
+                        "value": "Vietnamese"
+                    }
+                ],
+                "createable": true,
+                "displayName": "Language",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "language",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "Language",
+                "vendorNativeType": "string",
+                "vendorPath": "language"
+            },
+            {
+                "createable": true,
+                "displayName": "Mobile phone",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "mobile",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "Mobile phone",
+                "vendorNativeType": "string",
+                "vendorPath": "mobile"
+            },
+            {
+                "createable": true,
+                "displayName": "Full name",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "name",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "Full name",
+                "vendorNativeType": "string",
+                "vendorPath": "name"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "other_companies[*].company_id",
+                "type": "number",
+                "updateable": true,
+                "vendorNativeType": "number",
+                "vendorPath": "other_companies[*].company_id"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "other_companies[*].view_all_tickets",
+                "type": "boolean",
+                "updateable": true,
+                "vendorNativeType": "boolean",
+                "vendorPath": "other_companies[*].view_all_tickets"
+            },
+            {
+                "path": "other_emails",
+                "type": "array[string]",
+                "vendorPath": "other_emails"
+            },
+            {
+                "createable": true,
+                "displayName": "Work phone",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "phone",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "Work phone",
+                "vendorNativeType": "string",
+                "vendorPath": "phone"
+            },
+            {
+                "path": "tags",
+                "type": "array[string]",
+                "vendorPath": "tags"
+            },
+            {
+                "choices": [
+                    {
+                        "id": "American Samoa",
+                        "value": "(GMT-11:00) American Samoa"
+                    },
+                    {
+                        "id": "International Date Line West",
+                        "value": "(GMT-11:00) International Date Line West"
+                    },
+                    {
+                        "id": "Midway Island",
+                        "value": "(GMT-11:00) Midway Island"
+                    },
+                    {
+                        "id": "Hawaii",
+                        "value": "(GMT-10:00) Hawaii"
+                    },
+                    {
+                        "id": "Alaska",
+                        "value": "(GMT-09:00) Alaska"
+                    },
+                    {
+                        "id": "Pacific Time (US & Canada)",
+                        "value": "(GMT-08:00) Pacific Time (US & Canada)"
+                    },
+                    {
+                        "id": "Tijuana",
+                        "value": "(GMT-08:00) Tijuana"
+                    },
+                    {
+                        "id": "Arizona",
+                        "value": "(GMT-07:00) Arizona"
+                    },
+                    {
+                        "id": "Chihuahua",
+                        "value": "(GMT-07:00) Chihuahua"
+                    },
+                    {
+                        "id": "Mazatlan",
+                        "value": "(GMT-07:00) Mazatlan"
+                    },
+                    {
+                        "id": "Mountain Time (US & Canada)",
+                        "value": "(GMT-07:00) Mountain Time (US & Canada)"
+                    },
+                    {
+                        "id": "Central America",
+                        "value": "(GMT-06:00) Central America"
+                    },
+                    {
+                        "id": "Central Time (US & Canada)",
+                        "value": "(GMT-06:00) Central Time (US & Canada)"
+                    },
+                    {
+                        "id": "Guadalajara",
+                        "value": "(GMT-06:00) Guadalajara"
+                    },
+                    {
+                        "id": "Mexico City",
+                        "value": "(GMT-06:00) Mexico City"
+                    },
+                    {
+                        "id": "Monterrey",
+                        "value": "(GMT-06:00) Monterrey"
+                    },
+                    {
+                        "id": "Saskatchewan",
+                        "value": "(GMT-06:00) Saskatchewan"
+                    },
+                    {
+                        "id": "Bogota",
+                        "value": "(GMT-05:00) Bogota"
+                    },
+                    {
+                        "id": "Eastern Time (US & Canada)",
+                        "value": "(GMT-05:00) Eastern Time (US & Canada)"
+                    },
+                    {
+                        "id": "Indiana (East)",
+                        "value": "(GMT-05:00) Indiana (East)"
+                    },
+                    {
+                        "id": "Lima",
+                        "value": "(GMT-05:00) Lima"
+                    },
+                    {
+                        "id": "Quito",
+                        "value": "(GMT-05:00) Quito"
+                    },
+                    {
+                        "id": "Atlantic Time (Canada)",
+                        "value": "(GMT-04:00) Atlantic Time (Canada)"
+                    },
+                    {
+                        "id": "Caracas",
+                        "value": "(GMT-04:00) Caracas"
+                    },
+                    {
+                        "id": "Georgetown",
+                        "value": "(GMT-04:00) Georgetown"
+                    },
+                    {
+                        "id": "La Paz",
+                        "value": "(GMT-04:00) La Paz"
+                    },
+                    {
+                        "id": "Santiago",
+                        "value": "(GMT-04:00) Santiago"
+                    },
+                    {
+                        "id": "Newfoundland",
+                        "value": "(GMT-03:30) Newfoundland"
+                    },
+                    {
+                        "id": "Brasilia",
+                        "value": "(GMT-03:00) Brasilia"
+                    },
+                    {
+                        "id": "Buenos Aires",
+                        "value": "(GMT-03:00) Buenos Aires"
+                    },
+                    {
+                        "id": "Greenland",
+                        "value": "(GMT-03:00) Greenland"
+                    },
+                    {
+                        "id": "Mid-Atlantic",
+                        "value": "(GMT-02:00) Mid-Atlantic"
+                    },
+                    {
+                        "id": "Azores",
+                        "value": "(GMT-01:00) Azores"
+                    },
+                    {
+                        "id": "Cape Verde Is.",
+                        "value": "(GMT-01:00) Cape Verde Is."
+                    },
+                    {
+                        "id": "Casablanca",
+                        "value": "(GMT+00:00) Casablanca"
+                    },
+                    {
+                        "id": "Dublin",
+                        "value": "(GMT+00:00) Dublin"
+                    },
+                    {
+                        "id": "Edinburgh",
+                        "value": "(GMT+00:00) Edinburgh"
+                    },
+                    {
+                        "id": "Lisbon",
+                        "value": "(GMT+00:00) Lisbon"
+                    },
+                    {
+                        "id": "London",
+                        "value": "(GMT+00:00) London"
+                    },
+                    {
+                        "id": "Monrovia",
+                        "value": "(GMT+00:00) Monrovia"
+                    },
+                    {
+                        "id": "UTC",
+                        "value": "(GMT+00:00) UTC"
+                    },
+                    {
+                        "id": "Amsterdam",
+                        "value": "(GMT+01:00) Amsterdam"
+                    },
+                    {
+                        "id": "Belgrade",
+                        "value": "(GMT+01:00) Belgrade"
+                    },
+                    {
+                        "id": "Berlin",
+                        "value": "(GMT+01:00) Berlin"
+                    },
+                    {
+                        "id": "Bern",
+                        "value": "(GMT+01:00) Bern"
+                    },
+                    {
+                        "id": "Bratislava",
+                        "value": "(GMT+01:00) Bratislava"
+                    },
+                    {
+                        "id": "Brussels",
+                        "value": "(GMT+01:00) Brussels"
+                    },
+                    {
+                        "id": "Budapest",
+                        "value": "(GMT+01:00) Budapest"
+                    },
+                    {
+                        "id": "Copenhagen",
+                        "value": "(GMT+01:00) Copenhagen"
+                    },
+                    {
+                        "id": "Ljubljana",
+                        "value": "(GMT+01:00) Ljubljana"
+                    },
+                    {
+                        "id": "Madrid",
+                        "value": "(GMT+01:00) Madrid"
+                    },
+                    {
+                        "id": "Paris",
+                        "value": "(GMT+01:00) Paris"
+                    },
+                    {
+                        "id": "Prague",
+                        "value": "(GMT+01:00) Prague"
+                    },
+                    {
+                        "id": "Rome",
+                        "value": "(GMT+01:00) Rome"
+                    },
+                    {
+                        "id": "Sarajevo",
+                        "value": "(GMT+01:00) Sarajevo"
+                    },
+                    {
+                        "id": "Skopje",
+                        "value": "(GMT+01:00) Skopje"
+                    },
+                    {
+                        "id": "Stockholm",
+                        "value": "(GMT+01:00) Stockholm"
+                    },
+                    {
+                        "id": "Vienna",
+                        "value": "(GMT+01:00) Vienna"
+                    },
+                    {
+                        "id": "Warsaw",
+                        "value": "(GMT+01:00) Warsaw"
+                    },
+                    {
+                        "id": "West Central Africa",
+                        "value": "(GMT+01:00) West Central Africa"
+                    },
+                    {
+                        "id": "Zagreb",
+                        "value": "(GMT+01:00) Zagreb"
+                    },
+                    {
+                        "id": "Athens",
+                        "value": "(GMT+02:00) Athens"
+                    },
+                    {
+                        "id": "Bucharest",
+                        "value": "(GMT+02:00) Bucharest"
+                    },
+                    {
+                        "id": "Cairo",
+                        "value": "(GMT+02:00) Cairo"
+                    },
+                    {
+                        "id": "Harare",
+                        "value": "(GMT+02:00) Harare"
+                    },
+                    {
+                        "id": "Helsinki",
+                        "value": "(GMT+02:00) Helsinki"
+                    },
+                    {
+                        "id": "Istanbul",
+                        "value": "(GMT+02:00) Istanbul"
+                    },
+                    {
+                        "id": "Jerusalem",
+                        "value": "(GMT+02:00) Jerusalem"
+                    },
+                    {
+                        "id": "Kyiv",
+                        "value": "(GMT+02:00) Kyiv"
+                    },
+                    {
+                        "id": "Pretoria",
+                        "value": "(GMT+02:00) Pretoria"
+                    },
+                    {
+                        "id": "Riga",
+                        "value": "(GMT+02:00) Riga"
+                    },
+                    {
+                        "id": "Sofia",
+                        "value": "(GMT+02:00) Sofia"
+                    },
+                    {
+                        "id": "Tallinn",
+                        "value": "(GMT+02:00) Tallinn"
+                    },
+                    {
+                        "id": "Vilnius",
+                        "value": "(GMT+02:00) Vilnius"
+                    },
+                    {
+                        "id": "Baghdad",
+                        "value": "(GMT+03:00) Baghdad"
+                    },
+                    {
+                        "id": "Kuwait",
+                        "value": "(GMT+03:00) Kuwait"
+                    },
+                    {
+                        "id": "Minsk",
+                        "value": "(GMT+03:00) Minsk"
+                    },
+                    {
+                        "id": "Moscow",
+                        "value": "(GMT+03:00) Moscow"
+                    },
+                    {
+                        "id": "Nairobi",
+                        "value": "(GMT+03:00) Nairobi"
+                    },
+                    {
+                        "id": "Riyadh",
+                        "value": "(GMT+03:00) Riyadh"
+                    },
+                    {
+                        "id": "St. Petersburg",
+                        "value": "(GMT+03:00) St. Petersburg"
+                    },
+                    {
+                        "id": "Volgograd",
+                        "value": "(GMT+03:00) Volgograd"
+                    },
+                    {
+                        "id": "Tehran",
+                        "value": "(GMT+03:30) Tehran"
+                    },
+                    {
+                        "id": "Abu Dhabi",
+                        "value": "(GMT+04:00) Abu Dhabi"
+                    },
+                    {
+                        "id": "Baku",
+                        "value": "(GMT+04:00) Baku"
+                    },
+                    {
+                        "id": "Muscat",
+                        "value": "(GMT+04:00) Muscat"
+                    },
+                    {
+                        "id": "Tbilisi",
+                        "value": "(GMT+04:00) Tbilisi"
+                    },
+                    {
+                        "id": "Yerevan",
+                        "value": "(GMT+04:00) Yerevan"
+                    },
+                    {
+                        "id": "Kabul",
+                        "value": "(GMT+04:30) Kabul"
+                    },
+                    {
+                        "id": "Ekaterinburg",
+                        "value": "(GMT+05:00) Ekaterinburg"
+                    },
+                    {
+                        "id": "Islamabad",
+                        "value": "(GMT+05:00) Islamabad"
+                    },
+                    {
+                        "id": "Karachi",
+                        "value": "(GMT+05:00) Karachi"
+                    },
+                    {
+                        "id": "Tashkent",
+                        "value": "(GMT+05:00) Tashkent"
+                    },
+                    {
+                        "id": "Chennai",
+                        "value": "(GMT+05:30) Chennai"
+                    },
+                    {
+                        "id": "Kolkata",
+                        "value": "(GMT+05:30) Kolkata"
+                    },
+                    {
+                        "id": "Mumbai",
+                        "value": "(GMT+05:30) Mumbai"
+                    },
+                    {
+                        "id": "New Delhi",
+                        "value": "(GMT+05:30) New Delhi"
+                    },
+                    {
+                        "id": "Sri Jayawardenepura",
+                        "value": "(GMT+05:30) Sri Jayawardenepura"
+                    },
+                    {
+                        "id": "Kathmandu",
+                        "value": "(GMT+05:45) Kathmandu"
+                    },
+                    {
+                        "id": "Almaty",
+                        "value": "(GMT+06:00) Almaty"
+                    },
+                    {
+                        "id": "Astana",
+                        "value": "(GMT+06:00) Astana"
+                    },
+                    {
+                        "id": "Dhaka",
+                        "value": "(GMT+06:00) Dhaka"
+                    },
+                    {
+                        "id": "Urumqi",
+                        "value": "(GMT+06:00) Urumqi"
+                    },
+                    {
+                        "id": "Rangoon",
+                        "value": "(GMT+06:30) Rangoon"
+                    },
+                    {
+                        "id": "Bangkok",
+                        "value": "(GMT+07:00) Bangkok"
+                    },
+                    {
+                        "id": "Hanoi",
+                        "value": "(GMT+07:00) Hanoi"
+                    },
+                    {
+                        "id": "Jakarta",
+                        "value": "(GMT+07:00) Jakarta"
+                    },
+                    {
+                        "id": "Krasnoyarsk",
+                        "value": "(GMT+07:00) Krasnoyarsk"
+                    },
+                    {
+                        "id": "Novosibirsk",
+                        "value": "(GMT+07:00) Novosibirsk"
+                    },
+                    {
+                        "id": "Beijing",
+                        "value": "(GMT+08:00) Beijing"
+                    },
+                    {
+                        "id": "Chongqing",
+                        "value": "(GMT+08:00) Chongqing"
+                    },
+                    {
+                        "id": "Hong Kong",
+                        "value": "(GMT+08:00) Hong Kong"
+                    },
+                    {
+                        "id": "Irkutsk",
+                        "value": "(GMT+08:00) Irkutsk"
+                    },
+                    {
+                        "id": "Kuala Lumpur",
+                        "value": "(GMT+08:00) Kuala Lumpur"
+                    },
+                    {
+                        "id": "Perth",
+                        "value": "(GMT+08:00) Perth"
+                    },
+                    {
+                        "id": "Singapore",
+                        "value": "(GMT+08:00) Singapore"
+                    },
+                    {
+                        "id": "Taipei",
+                        "value": "(GMT+08:00) Taipei"
+                    },
+                    {
+                        "id": "Ulaan Bataar",
+                        "value": "(GMT+08:00) Ulaan Bataar"
+                    },
+                    {
+                        "id": "Osaka",
+                        "value": "(GMT+09:00) Osaka"
+                    },
+                    {
+                        "id": "Sapporo",
+                        "value": "(GMT+09:00) Sapporo"
+                    },
+                    {
+                        "id": "Seoul",
+                        "value": "(GMT+09:00) Seoul"
+                    },
+                    {
+                        "id": "Tokyo",
+                        "value": "(GMT+09:00) Tokyo"
+                    },
+                    {
+                        "id": "Yakutsk",
+                        "value": "(GMT+09:00) Yakutsk"
+                    },
+                    {
+                        "id": "Adelaide",
+                        "value": "(GMT+09:30) Adelaide"
+                    },
+                    {
+                        "id": "Darwin",
+                        "value": "(GMT+09:30) Darwin"
+                    },
+                    {
+                        "id": "Brisbane",
+                        "value": "(GMT+10:00) Brisbane"
+                    },
+                    {
+                        "id": "Canberra",
+                        "value": "(GMT+10:00) Canberra"
+                    },
+                    {
+                        "id": "Guam",
+                        "value": "(GMT+10:00) Guam"
+                    },
+                    {
+                        "id": "Hobart",
+                        "value": "(GMT+10:00) Hobart"
+                    },
+                    {
+                        "id": "Melbourne",
+                        "value": "(GMT+10:00) Melbourne"
+                    },
+                    {
+                        "id": "Port Moresby",
+                        "value": "(GMT+10:00) Port Moresby"
+                    },
+                    {
+                        "id": "Sydney",
+                        "value": "(GMT+10:00) Sydney"
+                    },
+                    {
+                        "id": "Vladivostok",
+                        "value": "(GMT+10:00) Vladivostok"
+                    },
+                    {
+                        "id": "Magadan",
+                        "value": "(GMT+11:00) Magadan"
+                    },
+                    {
+                        "id": "New Caledonia",
+                        "value": "(GMT+11:00) New Caledonia"
+                    },
+                    {
+                        "id": "Solomon Is.",
+                        "value": "(GMT+11:00) Solomon Is."
+                    },
+                    {
+                        "id": "Auckland",
+                        "value": "(GMT+12:00) Auckland"
+                    },
+                    {
+                        "id": "Fiji",
+                        "value": "(GMT+12:00) Fiji"
+                    },
+                    {
+                        "id": "Kamchatka",
+                        "value": "(GMT+12:00) Kamchatka"
+                    },
+                    {
+                        "id": "Marshall Is.",
+                        "value": "(GMT+12:00) Marshall Is."
+                    },
+                    {
+                        "id": "Wellington",
+                        "value": "(GMT+12:00) Wellington"
+                    },
+                    {
+                        "id": "Nuku'alofa",
+                        "value": "(GMT+13:00) Nuku'alofa"
+                    },
+                    {
+                        "id": "Samoa",
+                        "value": "(GMT+13:00) Samoa"
+                    },
+                    {
+                        "id": "Tokelau Is.",
+                        "value": "(GMT+13:00) Tokelau Is."
+                    }
+                ],
+                "createable": true,
+                "displayName": "Time zone",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "time_zone",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "Time zone",
+                "vendorNativeType": "string",
+                "vendorPath": "time_zone"
+            },
+            {
+                "createable": true,
+                "displayName": "Twitter",
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "twitter_id",
+                "type": "string",
+                "updateable": true,
+                "vendorDisplayName": "Twitter",
+                "vendorNativeType": "string",
+                "vendorPath": "twitter_id"
+            },
+            {
+                "createable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "updated_at",
+                "type": "string",
+                "updateable": false,
+                "vendorNativeType": "string",
+                "vendorPath": "updated_at",
+                "vendorReadOnly": true
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "view_all_tickets",
+                "type": "boolean",
+                "updateable": true,
+                "vendorNativeType": "boolean",
+                "vendorPath": "view_all_tickets"
+            }
+        ],
+        "operations": [
+            "SEARCH",
+            "RETRIEVE",
+            "CREATE",
+            "UPDATE",
+            "DELETE"
+        ]
+    },
+    {
+        "name": "agents",
+        "fields": [
+            {
+                "type": "boolean",
+                "path": "available",
+                "vendorPath": "available",
+                "vendorNativeType": "boolean",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "available_since",
+                "vendorPath": "available_since",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "boolean",
+                "path": "contact.active",
+                "vendorPath": "contact.active",
+                "vendorNativeType": "boolean",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.created_at",
+                "vendorPath": "contact.created_at",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.email",
+                "vendorPath": "contact.email",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.job_title",
+                "vendorPath": "contact.job_title",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.language",
+                "vendorPath": "contact.language",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.last_login_at",
+                "vendorPath": "contact.last_login_at",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.mobile",
+                "vendorPath": "contact.mobile",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.name",
+                "vendorPath": "contact.name",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.phone",
+                "vendorPath": "contact.phone",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.time_zone",
+                "vendorPath": "contact.time_zone",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "contact.updated_at",
+                "vendorPath": "contact.updated_at",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "created_at",
+                "vendorPath": "created_at",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "email",
+                "vendorPath": "email",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "PATCH",
+                        "response": false,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "array[integer]",
+                "path": "group_ids",
+                "vendorPath": "group_ids"
+            },
+            {
+                "type": "number",
+                "primaryKey": true,
+                "path": "id",
+                "vendorPath": "id",
+                "vendorNativeType": "number",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "job_title",
+                "vendorPath": "job_title",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "PATCH",
+                        "response": false,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "language",
+                "vendorPath": "language",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "PATCH",
+                        "response": false,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "mobile",
+                "vendorPath": "mobile",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "PATCH",
+                        "response": false,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "name",
+                "vendorPath": "name",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "PATCH",
+                        "response": false,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "boolean",
+                "path": "occasional",
+                "vendorPath": "occasional",
+                "vendorNativeType": "boolean",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "phone",
+                "vendorPath": "phone",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "PATCH",
+                        "response": false,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "array[integer]",
+                "path": "role_ids",
+                "vendorPath": "role_ids"
+            },
+            {
+                "type": "string",
+                "path": "signature",
+                "vendorPath": "signature",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "ticket_scope",
+                "vendorPath": "ticket_scope",
+                "vendorNativeType": "number",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "time_zone",
+                "vendorPath": "time_zone",
+                "vendorNativeType": "string",
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "PATCH",
+                        "response": false,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "updated_at",
+                "vendorPath": "updated_at",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            }
+        ],
+        "operations": [
+            "SEARCH",
+            "RETRIEVE",
+            "UPDATE",
+            "DELETE"
+        ]
+    },
+    {
+        "name": "tickets",
+        "fields": [
+            {
+                "type": "string",
+                "path": "association_type",
+                "vendorPath": "association_type",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "attachments[*].attachment_url",
+                "vendorPath": "attachments[*].attachment_url",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "attachments[*].content_type",
+                "vendorPath": "attachments[*].content_type",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "attachments[*].created_at",
+                "vendorPath": "attachments[*].created_at",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "attachments[*].id",
+                "vendorPath": "attachments[*].id",
+                "vendorNativeType": "number",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "attachments[*].name",
+                "vendorPath": "attachments[*].name",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "attachments[*].size",
+                "vendorPath": "attachments[*].size",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "attachments[*].thumb_url",
+                "vendorPath": "attachments[*].thumb_url",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "attachments[*].updated_at",
+                "vendorPath": "attachments[*].updated_at",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "array[string]",
+                "path": "cc_emails",
+                "vendorPath": "cc_emails"
+            },
+            {
+                "type": "number",
+                "path": "company_id",
+                "vendorPath": "company_id",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "created_at",
+                "vendorPath": "created_at",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "object",
+                "path": "custom_fields",
+                "vendorPath": "custom_fields"
+            },
+            {
+                "type": "date",
+                "path": "custom_fields.custom_date",
+                "vendorPath": "custom_fields.custom_date",
+                "mask": "yyyy-MM-dd'T'HH:mm:ssXXX",
+                "displayName": "custom date",
+                "vendorDisplayName": "custom date"
+            },
+            {
+                "type": "number",
+                "path": "custom_fields.custom_decimal",
+                "vendorPath": "custom_fields.custom_decimal",
+                "displayName": "custom decimal",
+                "vendorDisplayName": "custom decimal"
+            },
+            {
+                "type": "string",
+                "path": "custom_fields.custom_dependent",
+                "vendorPath": "custom_fields.custom_dependent",
+                "displayName": "custom dependent",
+                "vendorDisplayName": "custom dependent",
+                "choices": [
+                    {
+                        "id": "category 1",
+                        "value": "{subcategory 1=[item 1, item 2], subcategory 2=[item 1, item 2], subcategory 3=[]}"
+                    },
+                    {
+                        "id": "category 2",
+                        "value": "{subcategory 1=[item 1, item 2]}"
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "custom_fields.custom_dependent2",
+                "vendorPath": "custom_fields.custom_dependent2",
+                "displayName": "custom dependent2",
+                "vendorDisplayName": "custom dependent2"
+            },
+            {
+                "type": "string",
+                "path": "custom_fields.custom_dependent3",
+                "vendorPath": "custom_fields.custom_dependent3",
+                "displayName": "custom dependent3",
+                "vendorDisplayName": "custom dependent3"
+            },
+            {
+                "type": "string",
+                "path": "custom_fields.custom_dropdown",
+                "vendorPath": "custom_fields.custom_dropdown",
+                "displayName": "Custom Dropdown",
+                "vendorDisplayName": "Custom Dropdown",
+                "choices": [
+                    {
+                        "id": "1",
+                        "value": "First Choice"
+                    },
+                    {
+                        "id": "2",
+                        "value": "Second Choice"
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "custom_fields.custom_field_1",
+                "vendorPath": "custom_fields.custom_field_1",
+                "displayName": "Custom Field 1",
+                "vendorDisplayName": "Custom Field 1"
+            },
+            {
+                "type": "number",
+                "path": "custom_fields.custom_number",
+                "vendorPath": "custom_fields.custom_number",
+                "displayName": "custom number",
+                "vendorDisplayName": "custom number"
+            },
+            {
+                "type": "string",
+                "path": "custom_fields.external_id",
+                "vendorPath": "custom_fields.external_id",
+                "displayName": "External ID",
+                "vendorDisplayName": "External ID"
+            },
+            {
+                "type": "string",
+                "path": "custom_fields.external_id_field",
+                "vendorPath": "custom_fields.external_id_field",
+                "displayName": "External ID Field",
+                "vendorDisplayName": "External ID Field"
+            },
+            {
+                "type": "string",
+                "path": "custom_fields.testbool",
+                "vendorPath": "custom_fields.testbool",
+                "displayName": "testBool",
+                "vendorDisplayName": "testBool"
+            },
+            {
+                "type": "boolean",
+                "path": "deleted",
+                "vendorPath": "deleted",
+                "vendorNativeType": "boolean",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "description",
+                "vendorPath": "description",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "description_text",
+                "vendorPath": "description_text",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "due_by",
+                "vendorPath": "due_by",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "email",
+                "vendorPath": "email",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "email_config_id",
+                "vendorPath": "email_config_id",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "facebook_id",
+                "vendorPath": "facebook_id",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "fr_due_by",
+                "vendorPath": "fr_due_by",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "boolean",
+                "path": "fr_escalated",
+                "vendorPath": "fr_escalated",
+                "vendorNativeType": "boolean",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "array[string]",
+                "path": "fwd_emails",
+                "vendorPath": "fwd_emails"
+            },
+            {
+                "type": "number",
+                "path": "group_id",
+                "vendorPath": "group_id",
+                "displayName": "Group",
+                "vendorDisplayName": "Group",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "id",
+                "primaryKey": true,
+                "vendorPath": "id",
+                "vendorNativeType": "number",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "boolean",
+                "path": "is_escalated",
+                "vendorPath": "is_escalated",
+                "vendorNativeType": "boolean",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "name",
+                "vendorPath": "name",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "phone",
+                "vendorPath": "phone",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "priority",
+                "vendorPath": "priority",
+                "displayName": "Priority",
+                "vendorDisplayName": "Priority",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ],
+                "choices": [
+                    {
+                        "id": "Low",
+                        "value": "1"
+                    },
+                    {
+                        "id": "Medium",
+                        "value": "2"
+                    },
+                    {
+                        "id": "High",
+                        "value": "3"
+                    },
+                    {
+                        "id": "Urgent",
+                        "value": "4"
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "product_id",
+                "vendorPath": "product_id",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "array[string]",
+                "path": "reply_cc_emails",
+                "vendorPath": "reply_cc_emails"
+            },
+            {
+                "type": "number",
+                "path": "requester_id",
+                "vendorPath": "requester_id",
+                "displayName": "Requester",
+                "vendorDisplayName": "Requester",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "responder_id",
+                "vendorPath": "responder_id",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "source",
+                "vendorPath": "source",
+                "displayName": "Source",
+                "vendorDisplayName": "Source",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ],
+                "choices": [
+                    {
+                        "id": "Email",
+                        "value": "1"
+                    },
+                    {
+                        "id": "Portal",
+                        "value": "2"
+                    },
+                    {
+                        "id": "Phone",
+                        "value": "3"
+                    },
+                    {
+                        "id": "Forum",
+                        "value": "4"
+                    },
+                    {
+                        "id": "Twitter",
+                        "value": "5"
+                    },
+                    {
+                        "id": "Facebook",
+                        "value": "6"
+                    },
+                    {
+                        "id": "Chat",
+                        "value": "7"
+                    },
+                    {
+                        "id": "MobiHelp",
+                        "value": "8"
+                    },
+                    {
+                        "id": "Feedback Widget",
+                        "value": "9"
+                    },
+                    {
+                        "id": "Outbound Email",
+                        "value": "10"
+                    },
+                    {
+                        "id": "Ecommerce",
+                        "value": "11"
+                    },
+                    {
+                        "id": "Bot",
+                        "value": "12"
+                    }
+                ]
+            },
+            {
+                "type": "boolean",
+                "path": "spam",
+                "vendorPath": "spam",
+                "vendorNativeType": "boolean",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "number",
+                "path": "status",
+                "vendorPath": "status",
+                "displayName": "Status",
+                "vendorDisplayName": "Status",
+                "vendorNativeType": "number",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ],
+                "choices": [
+                    {
+                        "id": "2",
+                        "value": "[Open, Being Processed]"
+                    },
+                    {
+                        "id": "3",
+                        "value": "[Pending, Awaiting your Reply]"
+                    },
+                    {
+                        "id": "4",
+                        "value": "[Resolved, This ticket has been Resolved]"
+                    },
+                    {
+                        "id": "5",
+                        "value": "[Closed, This ticket has been Closed]"
+                    },
+                    {
+                        "id": "6",
+                        "value": "[Waiting on Customer, Awaiting your Reply]"
+                    },
+                    {
+                        "id": "7",
+                        "value": "[Waiting on Third Party, Being Processed]"
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "subject",
+                "vendorPath": "subject",
+                "displayName": "Subject",
+                "vendorDisplayName": "Subject",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "array[string]",
+                "path": "tags",
+                "vendorPath": "tags"
+            },
+            {
+                "type": "array[string]",
+                "path": "to_emails",
+                "vendorPath": "to_emails"
+            },
+            {
+                "type": "string",
+                "path": "twitter_id",
+                "vendorPath": "twitter_id",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "type",
+                "vendorPath": "type",
+                "displayName": "Type",
+                "vendorDisplayName": "Type",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "unique_external_id",
+                "vendorPath": "unique_external_id",
+                "vendorNativeType": "string",
+                "createable": true,
+                "updateable": true,
+                "method": [
+                    {
+                        "name": "POST",
+                        "response": false,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": false,
+                        "request": true
+                    }
+                ]
+            },
+            {
+                "type": "string",
+                "path": "updated_at",
+                "vendorPath": "updated_at",
+                "vendorNativeType": "string",
+                "vendorReadOnly": true,
+                "createable": false,
+                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "response": true,
+                        "request": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "response": true,
+                        "request": true
+                    }
+                ]
+            }
+        ],
+        "operations": [
+            "SEARCH",
+            "RETRIEVE",
+            "CREATE",
+            "UPDATE",
+            "DELETE"
+        ]
+    }
+]

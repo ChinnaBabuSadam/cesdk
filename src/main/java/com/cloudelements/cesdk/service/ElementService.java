@@ -1,6 +1,6 @@
 package com.cloudelements.cesdk.service;
 
-import com.mashape.unirest.http.HttpResponse;
+import com.cloudelements.cesdk.util.HttpResponse;
 
 import java.util.List;
 import java.util.Map;
@@ -35,4 +35,8 @@ public interface ElementService extends Service {
     void delete(String objectName, String id);
 
     List<String> findObjects();
+
+    Map doFileUpload(String objectName, Object object);
+
+    HttpResponse retrieveFile (String objectName, String fileId);
 }

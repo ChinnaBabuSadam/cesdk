@@ -1,36 +1,48 @@
-package com.cloudelements.cesdk.element.freshdeskv2;
+package com.cloudelements.cesdk.element.bamboohr;
 
+import com.cloudelements.cesdk.element.freshdeskv2.FreshdeskApiDeligate;
 import com.cloudelements.cesdk.framework.AbstractElementService;
 import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.cloudelements.cesdk.util.JacksonJsonUtil;
 import com.cloudelements.cesdk.util.ServiceConstants;
+import com.google.common.collect.ImmutableMap;
+import com.jayway.jsonpath.JsonPath;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONObject;
+import org.json.XML;
 import org.springframework.http.HttpStatus;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class FreshdeskApiDeligate extends AbstractElementService {
+public class BambooHRApiDeligate extends AbstractElementService {
 
-    private static final String BASE_URL = "https://cloudelements.freshdesk.com/api/v2";
-    private static final String PERIOD_JSON = ".json";
+    private static final String BASE_URL = "https://api.bamboohr.com/api/gateway.php/sdkbroker/v1";
     private static final String RESOURCE_METADATA_DIR = "metadata";
     private Map<String, String> headers;
 
     public Map<String, String> getHeaders() {
         return headers;
     }
+
+    private static final Map<String, String> VENDOR_RESOURCE_MAPPING =
+            Collections.unmodifiableMap(ImmutableMap.<String, String>builder()
+                    .put("employees", "/employees/directory")
+                    .put("files", "/employees/{id}/files")
+                    .put("categories", "/files/view")
+                    .build());
 
     public void setHeaders(Map<String, String> headers) {
         this.headers = headers;
@@ -48,7 +60,7 @@ public class FreshdeskApiDeligate extends AbstractElementService {
 
         InputStream inputStream =
                 FreshdeskApiDeligate.class.getClassLoader().
-                        getResourceAsStream(RESOURCE_METADATA_DIR + ServiceConstants.SLASH + "freshdeskv2.json");
+                        getResourceAsStream(RESOURCE_METADATA_DIR + ServiceConstants.SLASH + "bamboohr.json");
 
         if (inputStream == null) {
             return null;
@@ -62,40 +74,11 @@ public class FreshdeskApiDeligate extends AbstractElementService {
     }
 
     @Override
-    public Map doBulkDownLoad() {
-        throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The API not yet implemented");
-    }
-
-    @Override
-    public Map doBulkUpload() {
-        throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The API not yet implemented");
-    }
-
-    @Override
-    public boolean provision() {
-        throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The API not yet implemented");
-    }
-
-    @Override
-    public boolean deleteProvision() {
-        throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The API not yet implemented");
-    }
-
-    @Override
-    public List<Map> find(Object elementQuery, Object... args) {
-        throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The API not yet implemented");
-    }
-
-    @Override
-    public List<Map> find(Object elementQuery) {
-        throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The API not yet implemented");
-    }
-
-    @Override
     public List<Map> find(String objectName, Map<String, Object> query) {
 
-        if (StringUtils.isBlank(objectName)) {
-            throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The resource not yet implimented");
+        String vendorResource = VENDOR_RESOURCE_MAPPING.get(objectName);
+        if (StringUtils.isBlank(vendorResource)) {
+            throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The resource not yet implemented");
         }
 
         List<Map> responseList = null;
@@ -105,9 +88,7 @@ public class FreshdeskApiDeligate extends AbstractElementService {
         }
 
         StringBuilder urlBuilder = new StringBuilder(BASE_URL);
-        urlBuilder.append(ServiceConstants.SLASH);
-        urlBuilder.append(objectName);
-        urlBuilder.append(PERIOD_JSON);
+        urlBuilder.append(vendorResource);
 
         HttpResponse vendorResponse = null;
         try {
@@ -124,48 +105,33 @@ public class FreshdeskApiDeligate extends AbstractElementService {
             throw new ServiceException(HttpStatus.INTERNAL_SERVER_ERROR,
                     "Unable to retrieve data from service provider");
         }
-        responseList = JacksonJsonUtil.convertStringToList(responseString);
+        if (isXml(responseString)) {
+            JSONObject jsonObject = XML.toJSONObject(responseString);
+            if (StringUtils.equalsIgnoreCase(objectName, "categories") && jsonObject != null && !jsonObject.isEmpty()) {
+                Object categories = JsonPath.read(String.valueOf(jsonObject), "files.category");
+                responseList = JacksonJsonUtil.convertStringToList(JacksonJsonUtil.convertObjectToString(categories));
+            }
+        } else {
+            responseList = JacksonJsonUtil.
+                    convertStringToList(JacksonJsonUtil.
+                            convertObjectToString(JsonPath.read(responseString, objectName)));
+        }
 
         return responseList;
     }
 
-    @Override
-    public List<String> findObjects() {
-        return Arrays.asList("companies", "agents", "contacts", "tickets", "ticketsConversations", "surveys",
-                "products", "business_hours", "sla_policies", "groups", "roles");
+    private boolean isXml(String responseString) {
+        return StringUtils.startsWith(responseString, "<?xml");
     }
 
     @Override
-    public Map retrieve(String objectName, String id) {
-        if (StringUtils.isBlank(objectName) || StringUtils.isBlank(id)) {
-            throw new ServiceException(HttpStatus.BAD_REQUEST,
-                    "To retrieve an object you must provide resource and id");
-        }
-        Map response = new HashMap();
-        StringBuilder urlBuilder = new StringBuilder(BASE_URL);
-        urlBuilder.append(ServiceConstants.SLASH);
-        urlBuilder.append(objectName);
-        urlBuilder.append(ServiceConstants.SLASH);
-        urlBuilder.append(id);
+    public List<String> findObjects() {
+        return Arrays.asList("employees", "files");
+    }
 
-        HttpResponse vendorResponse = null;
-        try {
-            vendorResponse = Unirest.get(urlBuilder.toString()).headers(getHeaders()).asBinary();
-        } catch (UnirestException ux) {
-            throw new ServiceException(HttpStatus.INTERNAL_SERVER_ERROR, ux.getMessage());
-        }
-
-        handleErrorResponse(vendorResponse);
-
-        String responseString = null;
-        try {
-            responseString = IOUtils.toString(vendorResponse.getRawBody());
-            response = JacksonJsonUtil.convertStringToMap(responseString);
-        } catch (IOException e) {
-            throw new ServiceException(HttpStatus.INTERNAL_SERVER_ERROR,
-                    "Unable to retrieve data from service provider");
-        }
-        return response;
+    @Override
+    public Map doFileUpload(String objectName, Object object) {
+        return null;
     }
 
     @Override
@@ -174,6 +140,11 @@ public class FreshdeskApiDeligate extends AbstractElementService {
             throw new ServiceException(HttpStatus.BAD_REQUEST,
                     "To create an object you must provide resource and payload");
         }
+
+        if (StringUtils.equalsIgnoreCase(objectName, "files")) {
+            return doFileUpload(objectName, object);
+        }
+
         Map response = new HashMap();
         StringBuilder urlBuilder = new StringBuilder(BASE_URL);
         urlBuilder.append(ServiceConstants.SLASH);
@@ -202,11 +173,12 @@ public class FreshdeskApiDeligate extends AbstractElementService {
     }
 
     @Override
-    public Map update(String objectName, String id, Map object) {
-        if (StringUtils.isBlank(objectName) || StringUtils.isBlank(id) || object == null || object.isEmpty()) {
+    public Map retrieve(String objectName, String id) {
+        if (StringUtils.isBlank(objectName) || StringUtils.isBlank(id)) {
             throw new ServiceException(HttpStatus.BAD_REQUEST,
-                    "To update an object you must provide resource, payload and pathParameters");
+                    "To retrieve an object you must provide resource and id");
         }
+
         Map response = new HashMap();
         StringBuilder urlBuilder = new StringBuilder(BASE_URL);
         urlBuilder.append(ServiceConstants.SLASH);
@@ -214,12 +186,9 @@ public class FreshdeskApiDeligate extends AbstractElementService {
         urlBuilder.append(ServiceConstants.SLASH);
         urlBuilder.append(id);
 
-
         HttpResponse vendorResponse = null;
         try {
-            String body = JacksonJsonUtil.convertMapToString(object);
-            vendorResponse =
-                    Unirest.put(urlBuilder.toString()).headers(getHeaders()).body(body).asBinary();
+            vendorResponse = Unirest.get(urlBuilder.toString()).headers(getHeaders()).asBinary();
         } catch (UnirestException ux) {
             throw new ServiceException(HttpStatus.INTERNAL_SERVER_ERROR, ux.getMessage());
         }
@@ -238,31 +207,43 @@ public class FreshdeskApiDeligate extends AbstractElementService {
     }
 
     @Override
-    public void delete(String objectName, String id) {
-
-        if (StringUtils.isBlank(objectName) || StringUtils.isBlank(id)) {
-            throw new ServiceException(HttpStatus.BAD_REQUEST,
-                    "To delete an object you must provide resource and id");
-        }
+    public com.cloudelements.cesdk.util.HttpResponse retrieveFile(String objectName, String fileId) {
 
         StringBuilder urlBuilder = new StringBuilder(BASE_URL);
         urlBuilder.append(ServiceConstants.SLASH);
         urlBuilder.append(objectName);
         urlBuilder.append(ServiceConstants.SLASH);
-        urlBuilder.append(id);
+        urlBuilder.append(fileId);
 
         HttpResponse vendorResponse = null;
         try {
-            vendorResponse =
-                    Unirest.delete(urlBuilder.toString()).headers(getHeaders()).asBinary();
+            vendorResponse = Unirest.get(urlBuilder.toString()).headers(getHeaders()).asBinary();
         } catch (UnirestException ux) {
             throw new ServiceException(HttpStatus.INTERNAL_SERVER_ERROR, ux.getMessage());
         }
 
         handleErrorResponse(vendorResponse);
+
+        com.cloudelements.cesdk.util.HttpResponse httpResponse = new com.cloudelements.cesdk.util.HttpResponse();
+
+        httpResponse.setHeaders(vendorResponse.getHeaders());
+        httpResponse.setRawBody(vendorResponse.getRawBody());
+
+//        File file = new File("/Users/chinnababusadam/Desktop/zz.pdf");
+//        try {
+//            FileOutputStream fop = new FileOutputStream(file);
+//            if (!file.exists()) {
+//                file.createNewFile();
+//            }
+//            IOUtils.copy(vendorResponse.getRawBody(), fop);
+//            fop.flush();
+//            fop.close();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+        return httpResponse;
     }
-
-
-
-
 }

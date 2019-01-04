@@ -1,4 +1,4 @@
-package com.cloudelements.cesdk.element.freshdeskv2;
+package com.cloudelements.cesdk.element.bamboohr;
 
 import com.cloudelements.cesdk.service.domain.Request;
 import com.cloudelements.cesdk.service.domain.ResourceOperation;
@@ -7,6 +7,7 @@ import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.cloudelements.cesdk.util.HttpResponse;
 import com.cloudelements.cesdk.util.JacksonJsonUtil;
 import com.cloudelements.cesdk.util.ServiceConstants;
+import jdk.internal.util.xml.impl.Input;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -25,12 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 @WebServlet(
-        name = "FreshDeskService",
+        name = "BambooHRService",
         description = "This servlet helps to invoke all endpoints of FreshDesk v2 service",
-        urlPatterns = {"/freshdeskv2"}
+        urlPatterns = {"/bamboohr"}
 )
-public class FreshDeskService extends HttpServlet {
-
+public class BambooHRService extends HttpServlet {
     private static final String APPLICATION_JSON = "application/json";
     private static final String MESSAGE = "message";
     private static final String QUERY_PARAMETERS = "queryParameters";
@@ -47,7 +47,7 @@ public class FreshDeskService extends HttpServlet {
 
     private static final String AUTHORIZATION = "Authorization";
 
-    FreshdeskApiDeligate freshdeskApiDeligate;
+    BambooHRApiDeligate bamboohrApiDeligate;
 
 
     @Override
@@ -56,12 +56,12 @@ public class FreshDeskService extends HttpServlet {
     }
 
     private void initDeligate(HttpServletRequest httpServletRequest) {
-        freshdeskApiDeligate = new FreshdeskApiDeligate();
+        bamboohrApiDeligate = new BambooHRApiDeligate();
         Map<String, String> headers = new HashMap<>();
         headers.put(AUTHORIZATION, httpServletRequest.getHeader(AUTHORIZATION));
         headers.put(ServiceConstants.ACCEPT, APPLICATION_JSON);
         headers.put(ServiceConstants.CONTENT_TYPE, APPLICATION_JSON);
-        freshdeskApiDeligate.setHeaders(headers);
+        bamboohrApiDeligate.setHeaders(headers);
     }
 
     @Override
@@ -148,31 +148,36 @@ public class FreshDeskService extends HttpServlet {
         Object response = null;
         switch (method) {
             case INIT:
-                response = freshdeskApiDeligate.fetchSchema();
+                response = bamboohrApiDeligate.fetchSchema();
                 httpResponse.setCode(200);
                 break;
             case CREATE:
-                response = freshdeskApiDeligate.create(request.getResource(), request.getBody());
+                response = bamboohrApiDeligate.create(request.getResource(), request.getBody());
                 httpResponse.setCode(201);
                 break;
             case RETRIEVE:
-                response = freshdeskApiDeligate.retrieve(request.getResource(), request.getPathParameters().getId());
+                if (StringUtils.equalsIgnoreCase(request.getResource(), "files")) {
+                    response = bamboohrApiDeligate.retrieveFile(request.getResource(),
+                            request.getPathParameters().getId());
+                } else {
+                    response = bamboohrApiDeligate.retrieve(request.getResource(), request.getPathParameters().getId());
+                }
                 httpResponse.setCode(200);
                 break;
             case UPDATE:
-                response = freshdeskApiDeligate.update(request.getResource(), request.getPathParameters().getId(),
+                response = bamboohrApiDeligate.update(request.getResource(), request.getPathParameters().getId(),
                         request.getBody());
                 httpResponse.setCode(200);
                 break;
             case DELETE:
-                freshdeskApiDeligate.delete(request.getResource(), request.getPathParameters().getId());
+                bamboohrApiDeligate.delete(request.getResource(), request.getPathParameters().getId());
                 httpResponse.setCode(200);
                 break;
             case SEARCH:
                 if (StringUtils.equalsIgnoreCase(request.getResource(), OBJECTS)) {
-                    response = freshdeskApiDeligate.findObjects();
+                    response = bamboohrApiDeligate.findObjects();
                 } else {
-                    response = freshdeskApiDeligate.find(request.getResource(), request.getQueryParameters());
+                    response = bamboohrApiDeligate.find(request.getResource(), request.getQueryParameters());
                     loadNextPageTokenHeader(headers, request);
                 }
                 httpResponse.setCode(200);
@@ -182,9 +187,9 @@ public class FreshDeskService extends HttpServlet {
         }
 
         httpResponse.setHeaders(headers);
-        httpResponse.setHeaders(headers);
-        if (response instanceof InputStream) {
-            httpResponse.setRawBody((InputStream) response);
+        if (response instanceof HttpResponse) {
+
+            return (HttpResponse) response;
         } else {
             httpResponse.setBody(response);
         }
@@ -215,10 +220,10 @@ public class FreshDeskService extends HttpServlet {
         try {
             return JacksonJsonUtil.convertStringToObject(JacksonJsonUtil.convertMapToString(payload), Request.class);
         } catch (IllegalArgumentException ix) {
-            throw new ServiceException(HttpStatus.METHOD_NOT_ALLOWED, "The given method not yet supported");
+            throw new ServiceException(HttpStatus.METHOD_NOT_ALLOWED, "The given mehtod not yet supported");
         } catch (JsonParseException jx) {
             throw new ServiceException(HttpStatus.BAD_REQUEST,
-                    "The request payload is not well defined");
+                    "The payload or the queryParameters map is not well defined");
         } catch (Exception e) {
             throw new ServiceException(HttpStatus.BAD_REQUEST,
                     "Unable to process the request.  Please make sure the request payload is bound to CE standards");

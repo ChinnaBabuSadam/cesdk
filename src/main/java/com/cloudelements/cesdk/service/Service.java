@@ -1,6 +1,8 @@
 package com.cloudelements.cesdk.service;
 
+import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 public interface Service extends Serializable {
@@ -18,5 +20,7 @@ public interface Service extends Serializable {
     boolean provision();
 
     boolean deleteProvision();
+
+    List<Map> fetchSchema();
 
 }
