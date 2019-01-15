@@ -1435,13 +1435,39 @@
                 "vendorPath": "view_all_tickets"
             }
         ],
-        "operations": [
-            "SEARCH",
-            "RETRIEVE",
-            "CREATE",
-            "UPDATE",
-            "DELETE"
-        ]
+        "operations": {
+            "SEARCH": {
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "RETRIEVE": {
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "CREATE": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "UPDATE": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "DELETE": {
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
     },
     {
         "name": "agents",
@@ -1916,12 +1942,31 @@
                 ]
             }
         ],
-        "operations": [
-            "SEARCH",
-            "RETRIEVE",
-            "UPDATE",
-            "DELETE"
-        ]
+        "operations": {
+            "SEARCH": {
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "RETRIEVE": {
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "UPDATE": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "DELETE": {
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
     },
     {
         "name": "tickets",
@@ -3054,12 +3099,38 @@
                 ]
             }
         ],
-        "operations": [
-            "SEARCH",
-            "RETRIEVE",
-            "CREATE",
-            "UPDATE",
-            "DELETE"
-        ]
+        "operations": {
+            "SEARCH": {
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "RETRIEVE": {
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "CREATE": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "UPDATE": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "DELETE": {
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
     }
 ]

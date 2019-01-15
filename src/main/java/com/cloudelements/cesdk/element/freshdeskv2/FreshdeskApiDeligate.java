@@ -44,8 +44,6 @@ public class FreshdeskApiDeligate extends AbstractElementService {
     @Override
     public List<Map> fetchSchema() {
 
-        String schema = null;
-
         InputStream inputStream =
                 FreshdeskApiDeligate.class.getClassLoader().
                         getResourceAsStream(RESOURCE_METADATA_DIR + ServiceConstants.SLASH + "freshdeskv2.json");

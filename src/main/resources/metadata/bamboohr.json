@@ -1,14 +1,32 @@
 [
     {
-        "name": "employees",
         "fields": [
             {
-                "type": "string",
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
                 "path": "address1",
-                "vendorPath": "address1",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "address1"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -16,23 +34,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "address2",
-                "vendorPath": "address2",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "address2"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -40,23 +58,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "age",
-                "vendorPath": "age",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "age"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -64,23 +82,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "bestEmail",
-                "vendorPath": "bestEmail",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "bestEmail"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -88,167 +106,167 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "birthday",
-                "vendorPath": "birthday",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "birthday"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
                     }
-                ]
-            },
-            {
-                "type": "number",
+                ],
                 "path": "bonusAmount",
-                "vendorPath": "bonusAmount",
+                "type": "number",
                 "vendorNativeType": "number",
+                "vendorPath": "bonusAmount"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "bonusComment",
-                "vendorPath": "bonusComment",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "bonusComment"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "bonusDate",
-                "vendorPath": "bonusDate",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "bonusDate"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "bonusReason",
-                "vendorPath": "bonusReason",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "bonusReason"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "city",
-                "vendorPath": "city",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "city"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "commisionDate",
-                "vendorPath": "commisionDate",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "commisionDate"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "number",
+                ],
                 "path": "commissionAmount",
-                "vendorPath": "commissionAmount",
+                "type": "number",
                 "vendorNativeType": "number",
+                "vendorPath": "commissionAmount"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "commissionComment",
-                "vendorPath": "commissionComment",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "commissionComment"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "commissionDate",
-                "vendorPath": "commissionDate",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "commissionDate"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "country",
-                "vendorPath": "country",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "country"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -256,23 +274,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "dateOfBirth",
-                "vendorPath": "dateOfBirth",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "dateOfBirth"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -280,23 +298,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "department",
-                "vendorPath": "department",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "department"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -304,108 +322,103 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "displayName",
-                "vendorPath": "displayName",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "displayName"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "division",
-                "vendorPath": "division",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "division"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "eeo",
-                "vendorPath": "eeo",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "eeo"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "employeeNumber",
-                "vendorPath": "employeeNumber",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "employeeNumber"
+            },
+            {
+                "createable": false,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "employmentHistoryStatus",
+                "type": "string",
+                "updateable": false,
+                "vendorNativeType": "string",
                 "vendorPath": "employmentHistoryStatus",
-                "vendorNativeType": "string",
-                "vendorReadOnly": true,
-                "createable": false,
-                "updateable": false,
+                "vendorReadOnly": true
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "employmentStatus",
-                "vendorPath": "employmentStatus",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "employmentStatus"
+            },
+            {
                 "createable": true,
                 "method": [
                     {
@@ -414,18 +427,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "ethnicity",
-                "vendorPath": "ethnicity",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "ethnicity"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -433,23 +451,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "exempt",
-                "vendorPath": "exempt",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "exempt"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -457,57 +475,52 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "firstName",
-                "vendorPath": "firstName",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "firstName"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "flsaCode",
-                "vendorPath": "flsaCode",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "flsaCode"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "fullName1",
-                "vendorPath": "fullName1",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "fullName1"
+            },
+            {
                 "createable": true,
                 "method": [
                     {
@@ -516,16 +529,16 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "fullName2",
-                "vendorPath": "fullName2",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "fullName2"
+            },
+            {
                 "createable": true,
                 "method": [
                     {
@@ -534,16 +547,16 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "fullName3",
-                "vendorPath": "fullName3",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "fullName3"
+            },
+            {
                 "createable": true,
                 "method": [
                     {
@@ -552,16 +565,16 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "fullName4",
-                "vendorPath": "fullName4",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "fullName4"
+            },
+            {
                 "createable": true,
                 "method": [
                     {
@@ -570,16 +583,16 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "fullName5",
-                "vendorPath": "fullName5",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "fullName5"
+            },
+            {
                 "createable": true,
                 "method": [
                     {
@@ -588,18 +601,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "gender",
-                "vendorPath": "gender",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "gender"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -607,23 +625,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "hireDate",
-                "vendorPath": "hireDate",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "hireDate"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -631,23 +649,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "homeEmail",
-                "vendorPath": "homeEmail",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "homeEmail"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -655,577 +673,85 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "homePhone",
-                "vendorPath": "homePhone",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
+                "vendorNativeType": "string",
+                "vendorPath": "homePhone"
             },
             {
-                "type": "string",
-                "path": "id",
-                "vendorPath": "id",
-                "vendorNativeType": "string",
-                "vendorReadOnly": true,
                 "createable": false,
-                "updateable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": true
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": true
+                    }
+                ],
+                "path": "id",
                 "primaryKey": true,
+                "type": "string",
+                "updateable": false,
+                "vendorNativeType": "string",
+                "vendorPath": "id",
+                "vendorReadOnly": true
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": true,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": true,
-                        "request": true
                     }
-                ]
-            },
-            {
-                "type": "boolean",
+                ],
                 "path": "includeInPayroll",
-                "vendorPath": "includeInPayroll",
+                "type": "boolean",
                 "vendorNativeType": "boolean",
+                "vendorPath": "includeInPayroll"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "boolean",
+                ],
                 "path": "isPhotoUploaded",
-                "vendorPath": "isPhotoUploaded",
-                "vendorNativeType": "boolean",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "jobTitle",
-                "vendorPath": "jobTitle",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "lastChanged",
-                "vendorPath": "lastChanged",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "lastName",
-                "vendorPath": "lastName",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "linkedIn",
-                "vendorPath": "linkedIn",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "location",
-                "vendorPath": "location",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "maritalStatus",
-                "vendorPath": "maritalStatus",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "middleName",
-                "vendorPath": "middleName",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "mobilePhone",
-                "vendorPath": "mobilePhone",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "nickname",
-                "vendorPath": "nickname",
-                "vendorNativeType": "string",
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "originalHireDate",
-                "vendorPath": "originalHireDate",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "paidPer",
-                "vendorPath": "paidPer",
-                "vendorNativeType": "string",
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "payChangeReason",
-                "vendorPath": "payChangeReason",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "payFrequency",
-                "vendorPath": "payFrequency",
-                "vendorNativeType": "string",
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "payGroup",
-                "vendorPath": "payGroup",
-                "vendorNativeType": "string",
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    }
-                ]
-            },
-            {
-                "type": "number",
-                "path": "payGroupId",
-                "vendorPath": "payGroupId",
-                "vendorNativeType": "number",
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "payPer",
-                "vendorPath": "payPer",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "payPeriod",
-                "vendorPath": "payPeriod",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "payRate",
-                "vendorPath": "payRate",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "payRateEffectiveDate",
-                "vendorPath": "payRateEffectiveDate",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "paySchedule",
-                "vendorPath": "paySchedule",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "payScheduleId",
-                "vendorPath": "payScheduleId",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
-                "type": "string",
-                "path": "payType",
-                "vendorPath": "payType",
-                "vendorNativeType": "string",
-                "createable": true,
-                "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
-            },
-            {
                 "type": "boolean",
-                "path": "photoUploaded",
-                "vendorPath": "photoUploaded",
+                "updateable": true,
                 "vendorNativeType": "boolean",
+                "vendorPath": "isPhotoUploaded"
+            },
+            {
                 "createable": true,
-                "updateable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1233,23 +759,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
+                ],
+                "path": "jobTitle",
                 "type": "string",
-                "path": "photoUrl",
-                "vendorPath": "photoUrl",
-                "vendorNativeType": "string",
-                "createable": true,
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "jobTitle"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1257,23 +783,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
+                ],
+                "path": "lastChanged",
                 "type": "string",
-                "path": "preferredName",
-                "vendorPath": "preferredName",
-                "vendorNativeType": "string",
-                "createable": true,
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "lastChanged"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1281,23 +807,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
+                ],
+                "path": "lastName",
                 "type": "string",
-                "path": "sin",
-                "vendorPath": "sin",
-                "vendorNativeType": "string",
-                "createable": true,
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "lastName"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1305,23 +831,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
+                ],
+                "path": "linkedIn",
                 "type": "string",
-                "path": "ssn",
-                "vendorPath": "ssn",
-                "vendorNativeType": "string",
-                "createable": true,
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "linkedIn"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1329,35 +855,527 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
+                ],
+                "path": "location",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "location"
             },
             {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "maritalStatus",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "maritalStatus"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "middleName",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "middleName"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "mobilePhone",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "mobilePhone"
+            },
+            {
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    }
+                ],
+                "path": "nickname",
+                "type": "string",
+                "vendorNativeType": "string",
+                "vendorPath": "nickname"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "originalHireDate",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "originalHireDate"
+            },
+            {
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    }
+                ],
+                "path": "paidPer",
+                "type": "string",
+                "vendorNativeType": "string",
+                "vendorPath": "paidPer"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "payChangeReason",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "payChangeReason"
+            },
+            {
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    }
+                ],
+                "path": "payFrequency",
+                "type": "string",
+                "vendorNativeType": "string",
+                "vendorPath": "payFrequency"
+            },
+            {
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    }
+                ],
+                "path": "payGroup",
+                "type": "string",
+                "vendorNativeType": "string",
+                "vendorPath": "payGroup"
+            },
+            {
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    }
+                ],
+                "path": "payGroupId",
                 "type": "number",
-                "path": "standardHoursPerWeek",
-                "vendorPath": "standardHoursPerWeek",
                 "vendorNativeType": "number",
+                "vendorPath": "payGroupId"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "payPer",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "payPer"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "payPeriod",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "payPeriod"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "payRate",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "payRate"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "payRateEffectiveDate",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "payRateEffectiveDate"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "paySchedule",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "paySchedule"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "payScheduleId",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "payScheduleId"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "payType",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "payType"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "photoUploaded",
+                "type": "boolean",
+                "updateable": true,
+                "vendorNativeType": "boolean",
+                "vendorPath": "photoUploaded"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "photoUrl",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "photoUrl"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "preferredName",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "preferredName"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "sin",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "sin"
+            },
+            {
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
+                "path": "ssn",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "ssn"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
+                ],
+                "path": "standardHoursPerWeek",
+                "type": "number",
+                "vendorNativeType": "number",
+                "vendorPath": "standardHoursPerWeek"
             },
             {
-                "type": "string",
+                "createable": true,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
+                    }
+                ],
                 "path": "state",
-                "vendorPath": "state",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "state"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1365,23 +1383,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "stateCode",
-                "vendorPath": "stateCode",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "stateCode"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1389,83 +1407,83 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "status",
-                "vendorPath": "status",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "status"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "supervisor",
-                "vendorPath": "supervisor",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "supervisor"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "supervisorEId",
-                "vendorPath": "supervisorEId",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "supervisorEId"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "supervisorId",
-                "vendorPath": "supervisorId",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "supervisorId"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
+                    },
+                    {
+                        "name": "POST",
+                        "request": true,
+                        "response": false
+                    },
+                    {
+                        "name": "PATCH",
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "terminationDate",
-                "vendorPath": "terminationDate",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "terminationDate"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1473,23 +1491,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "workEmail",
-                "vendorPath": "workEmail",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "workEmail"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1497,23 +1515,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "workPhone",
-                "vendorPath": "workPhone",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "workPhone"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1521,23 +1539,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "workPhoneExtension",
-                "vendorPath": "workPhoneExtension",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "workPhoneExtension"
+            },
+            {
+                "createable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1545,47 +1563,23 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "workPhonePlusExtension",
-                "vendorPath": "workPhonePlusExtension",
-                "vendorNativeType": "string",
-                "createable": true,
+                "type": "string",
                 "updateable": true,
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    },
-                    {
-                        "name": "POST",
-                        "response": false,
-                        "request": true
-                    },
-                    {
-                        "name": "PATCH",
-                        "response": false,
-                        "request": true
-                    }
-                ]
+                "vendorNativeType": "string",
+                "vendorPath": "workPhonePlusExtension"
             },
             {
-                "type": "string",
-                "path": "zipcode",
-                "vendorPath": "zipcode",
-                "vendorNativeType": "string",
                 "createable": true,
-                "updateable": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1593,20 +1587,26 @@
                     },
                     {
                         "name": "POST",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     },
                     {
                         "name": "PATCH",
-                        "response": false,
-                        "request": true
+                        "request": true,
+                        "response": false
                     }
-                ]
+                ],
+                "path": "zipcode",
+                "type": "string",
+                "updateable": true,
+                "vendorNativeType": "string",
+                "vendorPath": "zipcode"
             }
         ],
+        "name": "employees",
         "operations": {
-            "SEARCH": {
-                "produces": [
+            "CREATE": {
+                "consumes": [
                     "application/json"
                 ]
             },
@@ -1615,8 +1615,8 @@
                     "application/json"
                 ]
             },
-            "CREATE": {
-                "consumes": [
+            "SEARCH": {
+                "produces": [
                     "application/json"
                 ]
             },
@@ -1628,148 +1628,148 @@
         }
     },
     {
-        "name": "categories",
         "fields": [
             {
-                "type": "array[string]",
                 "path": "category",
+                "type": "array[string]",
                 "vendorPath": "category"
             },
             {
-                "type": "string",
+                "createable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    }
+                ],
                 "path": "file.createdBy",
+                "type": "string",
+                "updateable": false,
+                "vendorNativeType": "string",
                 "vendorPath": "file.createdBy",
-                "vendorNativeType": "string",
-                "vendorReadOnly": true,
+                "vendorReadOnly": true
+            },
+            {
                 "createable": false,
-                "updateable": false,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "file.dateCreated",
+                "type": "string",
+                "updateable": false,
+                "vendorNativeType": "string",
                 "vendorPath": "file.dateCreated",
-                "vendorNativeType": "string",
-                "vendorReadOnly": true,
+                "vendorReadOnly": true
+            },
+            {
                 "createable": false,
-                "updateable": false,
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "number",
+                ],
                 "path": "file.id",
+                "type": "number",
+                "updateable": false,
+                "vendorNativeType": "number",
                 "vendorPath": "file.id",
-                "vendorNativeType": "number",
-                "vendorReadOnly": true,
-                "createable": false,
-                "updateable": false,
+                "vendorReadOnly": true
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "file.name",
-                "vendorPath": "file.name",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "file.name"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "file.originalFileName",
-                "vendorPath": "file.originalFileName",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "file.originalFileName"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "file.shareWithEmployee",
-                "vendorPath": "file.shareWithEmployee",
+                "type": "string",
                 "vendorNativeType": "string",
+                "vendorPath": "file.shareWithEmployee"
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "number",
+                ],
                 "path": "file.size",
-                "vendorPath": "file.size",
-                "vendorNativeType": "number",
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    }
-                ]
-            },
-            {
                 "type": "number",
-                "path": "id",
-                "vendorPath": "id",
                 "vendorNativeType": "number",
-                "vendorReadOnly": true,
+                "vendorPath": "file.size"
+            },
+            {
                 "createable": false,
+                "method": [
+                    {
+                        "name": "GET",
+                        "response": true
+                    }
+                ],
+                "path": "id",
+                "type": "number",
                 "updateable": false,
+                "vendorNativeType": "number",
+                "vendorPath": "id",
+                "vendorReadOnly": true
+            },
+            {
                 "method": [
                     {
                         "name": "GET",
                         "response": true
                     }
-                ]
-            },
-            {
-                "type": "string",
+                ],
                 "path": "name",
-                "vendorPath": "name",
+                "type": "string",
                 "vendorNativeType": "string",
-                "method": [
-                    {
-                        "name": "GET",
-                        "response": true
-                    }
-                ]
+                "vendorPath": "name"
             },
             {
-                "type": "string",
-                "path": "status",
-                "vendorPath": "status",
-                "vendorNativeType": "string",
                 "createable": true,
                 "method": [
                     {
                         "name": "POST",
-                        "response": true,
-                        "request": true
+                        "request": true,
+                        "response": true
                     }
-                ]
+                ],
+                "path": "status",
+                "type": "string",
+                "vendorNativeType": "string",
+                "vendorPath": "status"
             }
         ],
+        "name": "categories",
         "operations": {
             "SEARCH": {
                 "produces": [
@@ -1779,17 +1779,9 @@
         }
     },
     {
-        "name": "files",
         "fields": [
             {
-                "type": "string",
-                "path": "id",
-                "vendorPath": "id",
-                "vendorNativeType": "string",
-                "vendorReadOnly": true,
                 "createable": false,
-                "updateable": false,
-                "primaryKey": true,
                 "method": [
                     {
                         "name": "GET",
@@ -1797,30 +1789,59 @@
                     },
                     {
                         "name": "POST",
-                        "response": true,
-                        "request": true
+                        "request": true,
+                        "response": true
                     },
                     {
                         "name": "DELETE",
-                        "response": true,
-                        "request": true
+                        "request": true,
+                        "response": true
                     }
-                ]
+                ],
+                "path": "id",
+                "primaryKey": true,
+                "type": "string",
+                "updateable": false,
+                "vendorNativeType": "string",
+                "vendorPath": "id",
+                "vendorReadOnly": true
             }
         ],
+        "name": "files",
         "operations": {
+            "CREATE": {
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "requestParameters": {
+                    "category": {
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    "fileName": {
+                        "in": "formData",
+                        "required": true,
+                        "type": "string"
+                    },
+                    "share": {
+                        "in": "formData",
+                        "type": "boolean"
+                    }
+                }
+            },
+            "DELETE": {
+                "produces": [
+                    "application/json"
+                ]
+            },
             "RETRIEVE": {
                 "produces": [
                     "multipart/form-data"
                 ]
-            },
-            "CREATE": {
-                "consumes": [
-                    "multipart/form-data"
-                ]
-            },
-            "DELETE": {
-                "produces": "application/json"
             }
         }
     }

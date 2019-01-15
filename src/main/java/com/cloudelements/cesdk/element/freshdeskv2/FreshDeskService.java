@@ -55,10 +55,10 @@ public class FreshDeskService extends HttpServlet {
         super.init();
     }
 
-    private void initDeligate(HttpServletRequest httpServletRequest) {
+    private void initDeligate(Request request) {
         freshdeskApiDeligate = new FreshdeskApiDeligate();
         Map<String, String> headers = new HashMap<>();
-        headers.put(AUTHORIZATION, httpServletRequest.getHeader(AUTHORIZATION));
+        headers.put(AUTHORIZATION, String.valueOf(request.getProvisionConfigs()));
         headers.put(ServiceConstants.ACCEPT, APPLICATION_JSON);
         headers.put(ServiceConstants.CONTENT_TYPE, APPLICATION_JSON);
         freshdeskApiDeligate.setHeaders(headers);
@@ -66,8 +66,6 @@ public class FreshDeskService extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-
-        initDeligate(httpServletRequest);
 
         try {
             processRequest(httpServletRequest, httpServletResponse);
@@ -102,6 +100,7 @@ public class FreshDeskService extends HttpServlet {
         }
 
         Request request = constructRequest(httpServletRequest, payload);
+        initDeligate(request);
 
         HttpResponse response = dispatchRequest(request);
 

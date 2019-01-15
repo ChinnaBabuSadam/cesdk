@@ -1,8 +1,10 @@
 package com.cloudelements.cesdk.service.domain;
 
+import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.springframework.http.HttpMethod;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,9 +31,17 @@ public class Request implements Serializable {
 
     PathParameters pathParameters;
 
-    PagingDetails pagingDetails;
+    PagingDetails brokerPagingDetails;
 
     BrokerConfiguration brokerConfiguration;
+
+    List<FileItem> multipart;
+
+    Map<String, Object> multipartFormBody;
+
+    Object provisionConfigs;
+
+    List<Query> whereExpression;
 
     public Request() {}
 
@@ -44,6 +54,14 @@ public class Request implements Serializable {
         this.headers = headers;
         this.queryParameters = queryParams;
         this.pathParameters = pathParameters;
+    }
+
+    public Request(List<FileItem> fileItems, HttpMethod method, ResourceOperation resourceOperation, Map<String,
+            Object> headers) {
+        this.multipart = fileItems;
+        this.method = method;
+        this.resourceOperation = resourceOperation;
+        this.headers =  headers;
     }
 
     public Request(ResourceOperation resourceOperation, String resource) {
@@ -65,8 +83,28 @@ public class Request implements Serializable {
     }
 
     public Request(ResourceOperation resourceOperation, HttpMethod method, String resource, Map body, Map<String,
+            Object> headers, Map<String, Object> queryParameters, PathParameters pathParameters,
+                   PagingDetails brokerPagingDetails, BrokerConfiguration brokerConfiguration,
+                   List<FileItem> multipart, Map<String, Object> multipartFormBody, Object provisionConfigs,
+                   List<Query> whereExpression) {
+        this.resourceOperation = resourceOperation;
+        this.method = method;
+        this.resource = resource;
+        this.body = body;
+        this.headers = headers;
+        this.queryParameters = queryParameters;
+        this.pathParameters = pathParameters;
+        this.brokerPagingDetails = brokerPagingDetails;
+        this.brokerConfiguration = brokerConfiguration;
+        this.multipart = multipart;
+        this.multipartFormBody = multipartFormBody;
+        this.provisionConfigs = provisionConfigs;
+        this.whereExpression = whereExpression;
+    }
+
+    public Request(ResourceOperation resourceOperation, HttpMethod method, String resource, Map body, Map<String,
             Object> headers, Map<String, Object> queryParams, PathParameters pathParameters,
-                   PagingDetails pagingDetails, BrokerConfiguration brok) {
+                   PagingDetails brokerPagingDetails, BrokerConfiguration brok) {
         this.resourceOperation = resourceOperation;
         this.method = method;
         this.resource = resource;
@@ -74,8 +112,23 @@ public class Request implements Serializable {
         this.headers = headers;
         this.queryParameters = queryParams;
         this.pathParameters = pathParameters;
-        this.pagingDetails = pagingDetails;
+        this.brokerPagingDetails = brokerPagingDetails;
         this.brokerConfiguration = brok;
+    }
+
+    public Request(ResourceOperation resourceOperation, HttpMethod method, String resource, Map body, Map<String,
+            Object> headers, Map<String, Object> queryParams, PathParameters pathParameters,
+                   PagingDetails brokerPagingDetails, BrokerConfiguration brok, Object provisionConfigs) {
+        this.resourceOperation = resourceOperation;
+        this.method = method;
+        this.resource = resource;
+        this.body = body;
+        this.headers = headers;
+        this.queryParameters = queryParams;
+        this.pathParameters = pathParameters;
+        this.brokerPagingDetails = brokerPagingDetails;
+        this.brokerConfiguration = brok;
+        this.provisionConfigs = provisionConfigs;
     }
 
     public HttpMethod getMethod() {
@@ -134,12 +187,12 @@ public class Request implements Serializable {
         this.pathParameters = pathParameters;
     }
 
-    public PagingDetails getPagingDetails() {
-        return pagingDetails;
+    public PagingDetails getBrokerPagingDetails() {
+        return brokerPagingDetails;
     }
 
-    public void setPagingDetails(PagingDetails pagingDetails) {
-        this.pagingDetails = pagingDetails;
+    public void setBrokerPagingDetails(PagingDetails brokerPagingDetails) {
+        this.brokerPagingDetails = brokerPagingDetails;
     }
 
     public BrokerConfiguration getBrokerConfiguration() {
@@ -150,4 +203,39 @@ public class Request implements Serializable {
         this.brokerConfiguration = brokerConfiguration;
     }
 
+    public List<FileItem> getMultipart() {
+        return multipart;
+    }
+
+    public void setMultipart(List<FileItem> multipart) {
+        this.multipart = multipart;
+    }
+
+    public Map<String, Object> getMultipartFormBody() {
+        return multipartFormBody;
+    }
+
+    public void setMultipartFormBody(Map<String, Object> multipartFormBody) {
+        this.multipartFormBody = multipartFormBody;
+    }
+
+    public boolean isMultipartRequest() {
+        return this.multipart != null && !multipart.isEmpty();
+    }
+
+    public Object getProvisionConfigs() {
+        return provisionConfigs;
+    }
+
+    public void setProvisionConfigs(Object provisionConfigs) {
+        this.provisionConfigs = provisionConfigs;
+    }
+
+    public List<Query> getWhereExpression() {
+        return whereExpression;
+    }
+
+    public void setWhereExpression(List<Query> whereExpression) {
+        this.whereExpression = whereExpression;
+    }
 }

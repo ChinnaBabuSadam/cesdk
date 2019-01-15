@@ -10,15 +10,17 @@ import com.jayway.jsonpath.JsonPath;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
+import com.mashape.unirest.request.HttpRequestWithBody;
+import com.mashape.unirest.request.body.MultipartBody;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.HttpMultipartMode;
+import org.apache.tomcat.util.http.fileupload.FileItem;
 import org.json.JSONObject;
 import org.json.XML;
 import org.springframework.http.HttpStatus;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -29,7 +31,7 @@ import java.util.Map;
 
 public class BambooHRApiDeligate extends AbstractElementService {
 
-    private static final String BASE_URL = "https://api.bamboohr.com/api/gateway.php/sdkbroker/v1";
+    private static final String BASE_URL = "https://api.bamboohr.com/api/gateway.php/sdkbroker2/v1";
     private static final String RESOURCE_METADATA_DIR = "metadata";
     private Map<String, String> headers;
 
@@ -55,8 +57,6 @@ public class BambooHRApiDeligate extends AbstractElementService {
 
     @Override
     public List<Map> fetchSchema() {
-
-        String schema = null;
 
         InputStream inputStream =
                 FreshdeskApiDeligate.class.getClassLoader().
@@ -229,21 +229,70 @@ public class BambooHRApiDeligate extends AbstractElementService {
         httpResponse.setHeaders(vendorResponse.getHeaders());
         httpResponse.setRawBody(vendorResponse.getRawBody());
 
-//        File file = new File("/Users/chinnababusadam/Desktop/zz.pdf");
-//        try {
-//            FileOutputStream fop = new FileOutputStream(file);
-//            if (!file.exists()) {
-//                file.createNewFile();
-//            }
-//            IOUtils.copy(vendorResponse.getRawBody(), fop);
-//            fop.flush();
-//            fop.close();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        return httpResponse;
+    }
+
+    public com.cloudelements.cesdk.util.HttpResponse postFile(String objectName, List<FileItem> fileItems, Map<String
+            , Object> multipartFormBody, Map<String
+            , Object> reqHeaders) {
+
+        HttpRequestWithBody request = null;
+        HttpResponse response = null;
+        MultipartBody multipartBody = null;
+        try {
+            StringBuilder urlBuilder = new StringBuilder(BASE_URL);
+            urlBuilder.append(ServiceConstants.SLASH);
+            urlBuilder.append(objectName);
+
+            Map<String, String> headers = new HashMap<>();
+            for (String key : reqHeaders.keySet()) {
+                headers.put(key, String.valueOf(reqHeaders.get(key)));
+            }
+            //            headers.remove("content-length");
+
+            request = Unirest.post(urlBuilder.toString()).headers(headers);
+
+            if (fileItems != null && !fileItems.isEmpty()) {
+                for (FileItem fi : fileItems) {
+                    if (fi.isFormField()) {
+                        if (multipartBody == null) {
+                            multipartBody = request.field(fi.getFieldName(), fi.getString(), fi.getContentType());
+                        } else {
+                            multipartBody = multipartBody.field(fi.getFieldName(), fi.getString(), fi.getContentType());
+                        }
+                    } else {
+                        try {
+                            if (multipartBody == null) {
+                                multipartBody = request.field(fi.getFieldName(), fi.getInputStream(), ContentType.parse
+                                        (fi.getContentType()), fi.getName());
+                            } else {
+                                multipartBody = multipartBody.field(fi.getFieldName(), fi.getInputStream(), ContentType
+                                        .parse(fi.getContentType()), fi.getName());
+                            }
+                        } catch (Exception e) {
+                            throw new ServiceException(HttpStatus.BAD_REQUEST,
+                                    "Unable to process request.  \n" + e.getMessage());
+                        }
+                    }
+                }
+            }
+
+            if (multipartBody != null) {
+                multipartBody = multipartBody.mode(HttpMultipartMode.BROWSER_COMPATIBLE.toString());
+                response = multipartBody.asString();
+            }
+        } catch (UnirestException ux) {
+            throw new ServiceException(HttpStatus.valueOf(500), ux.getMessage());
+        }
+
+        handleErrorResponse(response);
+        com.cloudelements.cesdk.util.HttpResponse httpResponse = new com.cloudelements.cesdk.util.HttpResponse();
+
+        httpResponse.setHeaders(response.getHeaders());
+        httpResponse.setRawBody(response.getRawBody());
+
 
         return httpResponse;
+
     }
 }

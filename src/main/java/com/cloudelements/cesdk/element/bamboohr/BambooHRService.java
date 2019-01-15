@@ -11,16 +11,25 @@ import jdk.internal.util.xml.impl.Input;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.tomcat.util.http.fileupload.FileItem;
+import org.apache.tomcat.util.http.fileupload.RequestContext;
+import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
+import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
 import org.json.JSONObject;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,10 +64,10 @@ public class BambooHRService extends HttpServlet {
         super.init();
     }
 
-    private void initDeligate(HttpServletRequest httpServletRequest) {
+    private void initDeligate(Request request) {
         bamboohrApiDeligate = new BambooHRApiDeligate();
         Map<String, String> headers = new HashMap<>();
-        headers.put(AUTHORIZATION, httpServletRequest.getHeader(AUTHORIZATION));
+        headers.put(AUTHORIZATION, String.valueOf(request.getProvisionConfigs()));
         headers.put(ServiceConstants.ACCEPT, APPLICATION_JSON);
         headers.put(ServiceConstants.CONTENT_TYPE, APPLICATION_JSON);
         bamboohrApiDeligate.setHeaders(headers);
@@ -66,8 +75,6 @@ public class BambooHRService extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
-
-        initDeligate(httpServletRequest);
 
         try {
             processRequest(httpServletRequest, httpServletResponse);
@@ -91,21 +98,49 @@ public class BambooHRService extends HttpServlet {
 
     private void processRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 
-        String bodyString;
+        Request request = null;
 
-        InputStream inputStream = httpServletRequest.getInputStream();
-        bodyString = IOUtils.toString(inputStream, ServiceConstants.UTF_8);
-        Map<String, Object> payload = JacksonJsonUtil.convertStringToMap(bodyString);
+        if (ServletFileUpload.isMultipartContent(httpServletRequest)) {
+            // Create a factory for disk-based file items
+            DiskFileItemFactory factory = new DiskFileItemFactory();
 
-        if (!validateRequestBody(payload)) {
-            throw new ServiceException(HttpStatus.BAD_REQUEST, "Insufficient data");
+            // Configure a repository (to ensure a secure temp location is used)
+            ServletContext servletContext = this.getServletConfig().getServletContext();
+
+            // Create a new file upload handler
+            ServletFileUpload upload = new ServletFileUpload(factory);
+
+            // Parse the request
+            List<FileItem> items = upload.parseRequest(new ServletRequestContext(httpServletRequest));
+            request = constructMultipartRequest(httpServletRequest, items);
+        } else {
+            InputStream inputStream = httpServletRequest.getInputStream();
+            String bodyString = IOUtils.toString(inputStream, ServiceConstants.UTF_8);
+            Map<String, Object> payload = JacksonJsonUtil.convertStringToMap(bodyString);
+            if (!validateRequestBody(payload)) {
+                throw new ServiceException(HttpStatus.BAD_REQUEST, "Insufficient data");
+            }
+            request = constructRequest(httpServletRequest, payload);
         }
 
-        Request request = constructRequest(httpServletRequest, payload);
+        initDeligate(request);
 
         HttpResponse response = dispatchRequest(request);
 
         writeToOutputStream(httpServletResponse, response);
+    }
+
+    private Request constructMultipartRequest(HttpServletRequest httpServletRequest, List<FileItem> items) {
+        Enumeration<String> headerNames = httpServletRequest.getHeaderNames();
+        Map<String, Object> headers = new HashMap<>();
+        if (headerNames != null) {
+            while (headerNames.hasMoreElements()) {
+                String headerKey = headerNames.nextElement();
+                headers.put(headerKey, httpServletRequest.getHeader(headerKey));
+            }
+        }
+        return new Request(items, HttpMethod.valueOf(httpServletRequest.getMethod()), ResourceOperation.CREATE,
+                headers);
     }
 
     private void writeToOutputStream(HttpServletResponse httpServletResponse, HttpResponse response) {
@@ -152,7 +187,12 @@ public class BambooHRService extends HttpServlet {
                 httpResponse.setCode(200);
                 break;
             case CREATE:
-                response = bamboohrApiDeligate.create(request.getResource(), request.getBody());
+                if (request.isMultipartRequest()) {
+                    response = bamboohrApiDeligate.postFile("files", request.getMultipart(),
+                            request.getMultipartFormBody(), request.getHeaders());
+                } else {
+                    response = bamboohrApiDeligate.create(request.getResource(), request.getBody());
+                }
                 httpResponse.setCode(201);
                 break;
             case RETRIEVE:
