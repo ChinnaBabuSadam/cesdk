@@ -2,6 +2,8 @@ package com.cloudelements.cesdk.element.bamboohr;
 
 import com.cloudelements.cesdk.element.freshdeskv2.FreshdeskApiDeligate;
 import com.cloudelements.cesdk.framework.AbstractElementService;
+import com.cloudelements.cesdk.service.domain.BrokerConfig;
+import com.cloudelements.cesdk.service.domain.BrokerExpression;
 import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.cloudelements.cesdk.util.JacksonJsonUtil;
 import com.cloudelements.cesdk.util.ServiceConstants;
@@ -56,6 +58,11 @@ public class BambooHRApiDeligate extends AbstractElementService {
     }
 
     @Override
+    public List<BrokerConfig> refresh() {
+        return null;
+    }
+
+    @Override
     public List<Map> fetchSchema() {
 
         InputStream inputStream =
@@ -71,6 +78,11 @@ public class BambooHRApiDeligate extends AbstractElementService {
             throw new ServiceException(HttpStatus.NOT_FOUND, "Couldn't find the metadata for the element freshdeskv2");
         }
 
+    }
+
+    @Override
+    public List<Map> find(Object elementQuery, Object... args) {
+        return null;
     }
 
     @Override
@@ -170,6 +182,12 @@ public class BambooHRApiDeligate extends AbstractElementService {
                     "Unable to retrieve data from service provider");
         }
         return response;
+    }
+
+    @Override
+    public List<Map> find(String objectName, List<BrokerExpression> brokerExpressions) {
+        throw new ServiceException(HttpStatus.BAD_REQUEST,
+                "To retrieve an object you must provide resource and id");
     }
 
     @Override

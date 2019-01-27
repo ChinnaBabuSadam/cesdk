@@ -1,0 +1,190 @@
+[
+    {
+        "name": "contacts",
+        "fields": [
+            {
+                "type": "boolean",
+                "vendorPath": "active"
+            },
+            {
+                "type": "string",
+                "vendorPath": "address"
+            },
+            {
+                "type": "string",
+                "vendorPath": "avatar.avatar_url"
+            },
+            {
+                "type": "string",
+                "vendorPath": "avatar.content_type"
+            },
+            {
+                "type": "string",
+                "vendorPath": "avatar.created_at"
+            },
+            {
+                "type": "number",
+                "vendorPath": "avatar.id"
+            },
+            {
+                "type": "string",
+                "vendorPath": "avatar.name"
+            },
+            {
+                "type": "number",
+                "vendorPath": "avatar.size"
+            },
+            {
+                "type": "string",
+                "vendorPath": "avatar.updated_at"
+            },
+            {
+                "type": "number",
+                "vendorPath": "company_id"
+            },
+            {
+                "type": "string",
+                "vendorPath": "created_at"
+            },
+            {
+                "type": "object",
+                "vendorPath": "custom_fields"
+            },
+            {
+                "type": "date",
+                "vendorPath": "custom_fields.birthday"
+            },
+            {
+                "type": "string",
+                "vendorPath": "custom_fields.bromultilinetext"
+            },
+            {
+                "type": "string",
+                "vendorPath": "custom_fields.custom_field"
+            },
+            {
+                "type": "string",
+                "vendorPath": "custom_fields.favorite_color"
+            },
+            {
+                "type": "string",
+                "vendorPath": "custom_fields.parentcustomerid"
+            },
+            {
+                "type": "string",
+                "vendorPath": "custom_fields.sfcontactid"
+            },
+            {
+                "type": "string",
+                "vendorPath": "custom_fields.sfdcid"
+            },
+            {
+                "type": "boolean",
+                "vendorPath": "deleted"
+            },
+            {
+                "type": "string",
+                "vendorPath": "description"
+            },
+            {
+                "type": "string",
+                "vendorPath": "email"
+            },
+            {
+                "type": "number",
+                "vendorPath": "id",
+                "primaryKey": true
+            },
+            {
+                "type": "string",
+                "vendorPath": "job_title"
+            },
+            {
+                "type": "string",
+                "vendorPath": "language"
+            },
+            {
+                "type": "string",
+                "vendorPath": "mobile"
+            },
+            {
+                "type": "string",
+                "vendorPath": "name"
+            },
+            {
+                "type": "number",
+                "vendorPath": "other_companies[*].company_id"
+            },
+            {
+                "type": "boolean",
+                "vendorPath": "other_companies[*].view_all_tickets"
+            },
+            {
+                "type": "array[string]",
+                "vendorPath": "other_emails"
+            },
+            {
+                "type": "string",
+                "vendorPath": "phone"
+            },
+            {
+                "type": "array[string]",
+                "vendorPath": "tags"
+            },
+            {
+                "type": "string",
+                "vendorPath": "time_zone"
+            },
+            {
+                "type": "string",
+                "vendorPath": "twitter_id"
+            },
+            {
+                "type": "string",
+                "vendorPath": "updated_at"
+            },
+            {
+                "type": "boolean",
+                "vendorPath": "view_all_tickets"
+            }
+        ],
+        "operations": {
+            "SEARCH": {
+                "produces": [
+                    "application/json"
+                ],
+                "requestParameters": {
+                    "name": {
+                        "type": "string"
+                    }
+                }
+            },
+            "RETRIEVE": {
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "CREATE": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "UPDATE": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ]
+            },
+            "DELETE": {
+                "produces": [
+                    "application/json"
+                ]
+            }
+        }
+    }
+]

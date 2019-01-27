@@ -1,18 +1,16 @@
 package com.cloudelements.cesdk.element.bamboohr;
 
-import com.cloudelements.cesdk.service.domain.Request;
+import com.cloudelements.cesdk.service.domain.BrokerRequest;
 import com.cloudelements.cesdk.service.domain.ResourceOperation;
 import com.cloudelements.cesdk.service.exception.JsonParseException;
 import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.cloudelements.cesdk.util.HttpResponse;
 import com.cloudelements.cesdk.util.JacksonJsonUtil;
 import com.cloudelements.cesdk.util.ServiceConstants;
-import jdk.internal.util.xml.impl.Input;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tomcat.util.http.fileupload.FileItem;
-import org.apache.tomcat.util.http.fileupload.RequestContext;
 import org.apache.tomcat.util.http.fileupload.disk.DiskFileItemFactory;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 import org.apache.tomcat.util.http.fileupload.servlet.ServletRequestContext;
@@ -26,7 +24,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
@@ -64,10 +61,10 @@ public class BambooHRService extends HttpServlet {
         super.init();
     }
 
-    private void initDeligate(Request request) {
+    private void initDeligate(BrokerRequest request) {
         bamboohrApiDeligate = new BambooHRApiDeligate();
         Map<String, String> headers = new HashMap<>();
-        headers.put(AUTHORIZATION, String.valueOf(request.getProvisionConfigs()));
+        headers.put(AUTHORIZATION, String.valueOf(request.getAuthenticationConfigs()));
         headers.put(ServiceConstants.ACCEPT, APPLICATION_JSON);
         headers.put(ServiceConstants.CONTENT_TYPE, APPLICATION_JSON);
         bamboohrApiDeligate.setHeaders(headers);
@@ -98,7 +95,7 @@ public class BambooHRService extends HttpServlet {
 
     private void processRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 
-        Request request = null;
+        BrokerRequest request = null;
 
         if (ServletFileUpload.isMultipartContent(httpServletRequest)) {
             // Create a factory for disk-based file items
@@ -130,7 +127,7 @@ public class BambooHRService extends HttpServlet {
         writeToOutputStream(httpServletResponse, response);
     }
 
-    private Request constructMultipartRequest(HttpServletRequest httpServletRequest, List<FileItem> items) {
+    private BrokerRequest constructMultipartRequest(HttpServletRequest httpServletRequest, List<FileItem> items) {
         Enumeration<String> headerNames = httpServletRequest.getHeaderNames();
         Map<String, Object> headers = new HashMap<>();
         if (headerNames != null) {
@@ -139,8 +136,16 @@ public class BambooHRService extends HttpServlet {
                 headers.put(headerKey, httpServletRequest.getHeader(headerKey));
             }
         }
-        return new Request(items, HttpMethod.valueOf(httpServletRequest.getMethod()), ResourceOperation.CREATE,
-                headers);
+        /**
+         * public BrokerRequest(ResourceOperation resourceOperation, HttpMethod method, String resource, Map body,
+         *                          Map<String, Object> headers, Map<String, Object> queryParameters,
+         *                          BrokerPathParameters brokerPathParameters, BrokerPagingDetails brokerPagingDetails,
+         *                          List<FileItem> multipart, Map<String, Object> multipartFormBody,
+         *                          List<BrokerConfig> authenticationConfigs, List<BrokerExpression> brokerExpressions)
+         */
+
+        return new BrokerRequest(ResourceOperation.CREATE, HttpMethod.valueOf(httpServletRequest.getMethod()), null, null,
+                headers, null, null, null, items, null, null, null);
     }
 
     private void writeToOutputStream(HttpServletResponse httpServletResponse, HttpResponse response) {
@@ -176,7 +181,7 @@ public class BambooHRService extends HttpServlet {
         }
     }
 
-    private HttpResponse dispatchRequest(Request request) {
+    private HttpResponse dispatchRequest(BrokerRequest request) {
         ResourceOperation method = request.getResourceOperation();
         HttpResponse httpResponse = new HttpResponse();
         Map<String, Object> headers = new HashMap<>();
@@ -198,19 +203,19 @@ public class BambooHRService extends HttpServlet {
             case RETRIEVE:
                 if (StringUtils.equalsIgnoreCase(request.getResource(), "files")) {
                     response = bamboohrApiDeligate.retrieveFile(request.getResource(),
-                            request.getPathParameters().getId());
+                            request.getBrokerPathParameters().getId());
                 } else {
-                    response = bamboohrApiDeligate.retrieve(request.getResource(), request.getPathParameters().getId());
+                    response = bamboohrApiDeligate.retrieve(request.getResource(), request.getBrokerPathParameters().getId());
                 }
                 httpResponse.setCode(200);
                 break;
             case UPDATE:
-                response = bamboohrApiDeligate.update(request.getResource(), request.getPathParameters().getId(),
+                response = bamboohrApiDeligate.update(request.getResource(), request.getBrokerPathParameters().getId(),
                         request.getBody());
                 httpResponse.setCode(200);
                 break;
             case DELETE:
-                bamboohrApiDeligate.delete(request.getResource(), request.getPathParameters().getId());
+                bamboohrApiDeligate.delete(request.getResource(), request.getBrokerPathParameters().getId());
                 httpResponse.setCode(200);
                 break;
             case SEARCH:
@@ -236,7 +241,7 @@ public class BambooHRService extends HttpServlet {
         return httpResponse;
     }
 
-    private void loadNextPageTokenHeader(Map<String, Object> headers, Request request) {
+    private void loadNextPageTokenHeader(Map<String, Object> headers, BrokerRequest request) {
         Map<String, Object> queryParams = request.getQueryParameters();
         JSONObject json = new JSONObject();
         int page = 0;
@@ -255,10 +260,10 @@ public class BambooHRService extends HttpServlet {
         headers.put(ELEMENT_NEXT_PAGE_TOKEN, nextPageToken);
     }
 
-    private Request constructRequest(HttpServletRequest req, Map<String, Object> payload) {
+    private BrokerRequest constructRequest(HttpServletRequest req, Map<String, Object> payload) {
 
         try {
-            return JacksonJsonUtil.convertStringToObject(JacksonJsonUtil.convertMapToString(payload), Request.class);
+            return JacksonJsonUtil.convertStringToObject(JacksonJsonUtil.convertMapToString(payload), BrokerRequest.class);
         } catch (IllegalArgumentException ix) {
             throw new ServiceException(HttpStatus.METHOD_NOT_ALLOWED, "The given mehtod not yet supported");
         } catch (JsonParseException jx) {

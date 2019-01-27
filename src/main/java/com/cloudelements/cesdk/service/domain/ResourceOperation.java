@@ -17,7 +17,8 @@ public enum ResourceOperation implements Serializable {
     UPDATE("update"),
     SEARCH("search"),
     DELETE("delete"),
-    UPDATEALL("updateall");
+    UPDATEALL("updateall"),
+    REFRESH("refresh");
 
     String method;
 

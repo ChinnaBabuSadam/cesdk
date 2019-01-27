@@ -2,17 +2,16 @@ package com.cloudelements.cesdk.service.domain;
 
 import java.io.Serializable;
 
-public class Query implements Serializable {
+public class BrokerExpression implements Serializable {
 
-    private static final long serialVersionUID = -3195446992511546665L;
-
+    private static final long serialVersionUID = -863439174489160612L;
     String key;
     String value;
     ExpressionOperator operator;
 
-    public Query() {}
+    public BrokerExpression() {}
 
-    public Query(String key, String value, ExpressionOperator operator) {
+    public BrokerExpression(String key, String value, ExpressionOperator operator) {
         this.key = key;
         this.value = value;
         this.operator = operator;

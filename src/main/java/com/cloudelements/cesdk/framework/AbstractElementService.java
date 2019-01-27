@@ -1,6 +1,7 @@
 package com.cloudelements.cesdk.framework;
 
 import com.cloudelements.cesdk.service.ElementService;
+import com.cloudelements.cesdk.service.domain.BrokerExpression;
 import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.mashape.unirest.http.HttpResponse;
 import org.apache.commons.lang3.StringUtils;
@@ -16,9 +17,10 @@ public abstract class AbstractElementService implements ElementService {
 
     private final static String API_NOT_SUPPORTED = "This API is not currently supported for this element";
 
+
     @Override
-    public List<Map> find(Object elementQuery, Object... args) {
-        throw new ServiceException(HttpStatus.METHOD_NOT_ALLOWED, API_NOT_SUPPORTED);
+    public List<Map> find(Object elementQuery, List<BrokerExpression> brokerExpressions) {
+        return null;
     }
 
     @Override
@@ -45,6 +47,8 @@ public abstract class AbstractElementService implements ElementService {
     public void delete(String objectName, String id) {
         throw new ServiceException(HttpStatus.METHOD_NOT_ALLOWED, API_NOT_SUPPORTED);
     }
+
+    public abstract List<Map> find(String objectName, List<BrokerExpression> brokerExpressions);
 
     @Override
     public List<String> findObjects() {

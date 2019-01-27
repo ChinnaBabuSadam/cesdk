@@ -2,7 +2,7 @@ package com.cloudelements.cesdk.service.domain;
 
 import java.io.Serializable;
 
-public class PathParameters implements Serializable {
+public class BrokerPathParameters implements Serializable {
 
     private static final long serialVersionUID = -6329172248532243573L;
 

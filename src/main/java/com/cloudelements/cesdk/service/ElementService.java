@@ -1,5 +1,6 @@
 package com.cloudelements.cesdk.service;
 
+import com.cloudelements.cesdk.service.domain.BrokerExpression;
 import com.cloudelements.cesdk.util.HttpResponse;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public interface ElementService extends Service {
      * @return
      */
     List<Map> find(Object elementQuery, Object... args);
+
+    List<Map> find(Object elementQuery, List<BrokerExpression> brokerExpressions);
 
     List<Map> find(Object elementQuery);
 

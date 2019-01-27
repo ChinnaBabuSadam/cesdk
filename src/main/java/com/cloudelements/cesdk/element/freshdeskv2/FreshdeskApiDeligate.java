@@ -1,6 +1,8 @@
 package com.cloudelements.cesdk.element.freshdeskv2;
 
 import com.cloudelements.cesdk.framework.AbstractElementService;
+import com.cloudelements.cesdk.service.domain.BrokerConfig;
+import com.cloudelements.cesdk.service.domain.BrokerExpression;
 import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.cloudelements.cesdk.util.JacksonJsonUtil;
 import com.cloudelements.cesdk.util.ServiceConstants;
@@ -9,6 +11,7 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
 import org.springframework.http.HttpStatus;
 
 import java.io.BufferedInputStream;
@@ -16,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -39,6 +43,16 @@ public class FreshdeskApiDeligate extends AbstractElementService {
     @Override
     public void init() {
 
+    }
+
+    @Override
+    public List<BrokerConfig> refresh() {
+
+        List<BrokerConfig> configs = new ArrayList<>();
+        BrokerConfig config = new BrokerConfig( "Basic cGNUbFFSWEFnMVlXZHhEd3N4SVg6WA==", "authHeader", true);
+        configs.add(config);
+
+        return configs;
     }
 
     @Override
@@ -91,6 +105,11 @@ public class FreshdeskApiDeligate extends AbstractElementService {
 
     @Override
     public List<Map> find(String objectName, Map<String, Object> query) {
+        throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The API not yet implemented");
+    }
+
+    @Override
+    public List<Map> find(String objectName, List<BrokerExpression> brokerExpressions) {
 
         if (StringUtils.isBlank(objectName)) {
             throw new ServiceException(HttpStatus.NOT_IMPLEMENTED, "The resource not yet implimented");
@@ -98,8 +117,11 @@ public class FreshdeskApiDeligate extends AbstractElementService {
 
         List<Map> responseList = null;
 
-        if (query == null) {
-            query = new HashMap<>();
+        Map query = new HashMap<>();
+        if (brokerExpressions != null) {
+            for (BrokerExpression brokerExpression: brokerExpressions) {
+                query.put(brokerExpression.getKey(), brokerExpression.getValue());
+            }
         }
 
         StringBuilder urlBuilder = new StringBuilder(BASE_URL);

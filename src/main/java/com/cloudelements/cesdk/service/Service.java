@@ -1,5 +1,7 @@
 package com.cloudelements.cesdk.service;
 
+import com.cloudelements.cesdk.service.domain.BrokerConfig;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.List;
@@ -22,5 +24,7 @@ public interface Service extends Serializable {
     boolean deleteProvision();
 
     List<Map> fetchSchema();
+
+    List<BrokerConfig> refresh();
 
 }

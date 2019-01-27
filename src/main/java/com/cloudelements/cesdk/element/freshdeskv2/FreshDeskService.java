@@ -1,12 +1,14 @@
 package com.cloudelements.cesdk.element.freshdeskv2;
 
-import com.cloudelements.cesdk.service.domain.Request;
+import com.cloudelements.cesdk.service.domain.BrokerConfig;
+import com.cloudelements.cesdk.service.domain.BrokerRequest;
 import com.cloudelements.cesdk.service.domain.ResourceOperation;
 import com.cloudelements.cesdk.service.exception.JsonParseException;
 import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.cloudelements.cesdk.util.HttpResponse;
 import com.cloudelements.cesdk.util.JacksonJsonUtil;
 import com.cloudelements.cesdk.util.ServiceConstants;
+import com.sun.corba.se.pept.broker.Broker;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -55,10 +57,14 @@ public class FreshDeskService extends HttpServlet {
         super.init();
     }
 
-    private void initDeligate(Request request) {
+    private void initDeligate(BrokerRequest request) {
         freshdeskApiDeligate = new FreshdeskApiDeligate();
         Map<String, String> headers = new HashMap<>();
-        headers.put(AUTHORIZATION, String.valueOf(request.getProvisionConfigs()));
+        List<BrokerConfig> authConfigs = request.getAuthenticationConfigs();
+        for (BrokerConfig config: authConfigs) {
+            headers.put(config.getKey(), config.getValue());
+        }
+
         headers.put(ServiceConstants.ACCEPT, APPLICATION_JSON);
         headers.put(ServiceConstants.CONTENT_TYPE, APPLICATION_JSON);
         freshdeskApiDeligate.setHeaders(headers);
@@ -99,7 +105,7 @@ public class FreshDeskService extends HttpServlet {
             throw new ServiceException(HttpStatus.BAD_REQUEST, "Insufficient data");
         }
 
-        Request request = constructRequest(httpServletRequest, payload);
+        BrokerRequest request = constructRequest(httpServletRequest, payload);
         initDeligate(request);
 
         HttpResponse response = dispatchRequest(request);
@@ -140,7 +146,7 @@ public class FreshDeskService extends HttpServlet {
         }
     }
 
-    private HttpResponse dispatchRequest(Request request) {
+    private HttpResponse dispatchRequest(BrokerRequest request) {
         ResourceOperation method = request.getResourceOperation();
         HttpResponse httpResponse = new HttpResponse();
         Map<String, Object> headers = new HashMap<>();
@@ -150,28 +156,32 @@ public class FreshDeskService extends HttpServlet {
                 response = freshdeskApiDeligate.fetchSchema();
                 httpResponse.setCode(200);
                 break;
+            case REFRESH:
+                response = freshdeskApiDeligate.refresh();
+                httpResponse.setCode(200);
+                break;
             case CREATE:
                 response = freshdeskApiDeligate.create(request.getResource(), request.getBody());
                 httpResponse.setCode(201);
                 break;
             case RETRIEVE:
-                response = freshdeskApiDeligate.retrieve(request.getResource(), request.getPathParameters().getId());
+                response = freshdeskApiDeligate.retrieve(request.getResource(), request.getBrokerPathParameters().getId());
                 httpResponse.setCode(200);
                 break;
             case UPDATE:
-                response = freshdeskApiDeligate.update(request.getResource(), request.getPathParameters().getId(),
+                response = freshdeskApiDeligate.update(request.getResource(), request.getBrokerPathParameters().getId(),
                         request.getBody());
                 httpResponse.setCode(200);
                 break;
             case DELETE:
-                freshdeskApiDeligate.delete(request.getResource(), request.getPathParameters().getId());
+                freshdeskApiDeligate.delete(request.getResource(), request.getBrokerPathParameters().getId());
                 httpResponse.setCode(200);
                 break;
             case SEARCH:
                 if (StringUtils.equalsIgnoreCase(request.getResource(), OBJECTS)) {
                     response = freshdeskApiDeligate.findObjects();
                 } else {
-                    response = freshdeskApiDeligate.find(request.getResource(), request.getQueryParameters());
+                    response = freshdeskApiDeligate.find(request.getResource(), request.getBrokerExpressions());
                     loadNextPageTokenHeader(headers, request);
                 }
                 httpResponse.setCode(200);
@@ -190,7 +200,7 @@ public class FreshDeskService extends HttpServlet {
         return httpResponse;
     }
 
-    private void loadNextPageTokenHeader(Map<String, Object> headers, Request request) {
+    private void loadNextPageTokenHeader(Map<String, Object> headers, BrokerRequest request) {
         Map<String, Object> queryParams = request.getQueryParameters();
         JSONObject json = new JSONObject();
         int page = 0;
@@ -209,10 +219,12 @@ public class FreshDeskService extends HttpServlet {
         headers.put(ELEMENT_NEXT_PAGE_TOKEN, nextPageToken);
     }
 
-    private Request constructRequest(HttpServletRequest req, Map<String, Object> payload) {
+    private BrokerRequest constructRequest(HttpServletRequest req, Map<String, Object> payload) {
 
         try {
-            return JacksonJsonUtil.convertStringToObject(JacksonJsonUtil.convertMapToString(payload), Request.class);
+
+            return JacksonJsonUtil.convertStringToObject(JacksonJsonUtil.convertMapToString(payload),
+                    BrokerRequest.class);
         } catch (IllegalArgumentException ix) {
             throw new ServiceException(HttpStatus.METHOD_NOT_ALLOWED, "The given method not yet supported");
         } catch (JsonParseException jx) {

@@ -2,9 +2,9 @@ package com.cloudelements.cesdk.service.domain;
 
 import java.io.Serializable;
 
-public class PagingDetails implements Serializable {
+public class BrokerPagingDetails implements Serializable {
 
-    private static final long serialVersionUID = 3123869563593355499L;
+    private static final long serialVersionUID = 8079787985385133962L;
 
     int page;
 
@@ -12,13 +12,13 @@ public class PagingDetails implements Serializable {
 
     int nextPageToken;
 
-    public PagingDetails(int page, int pageSize, int nextPageToken) {
+    public BrokerPagingDetails(int page, int pageSize, int nextPageToken) {
         this.page = page;
         this.pageSize = pageSize;
         this.nextPageToken = nextPageToken;
     }
 
-    public PagingDetails(int page, int pageSize) {
+    public BrokerPagingDetails(int page, int pageSize) {
         this.page = page;
         this.pageSize = pageSize;
     }
@@ -46,4 +46,5 @@ public class PagingDetails implements Serializable {
     public void setNextPageToken(int nextPageToken) {
         this.nextPageToken = nextPageToken;
     }
+
 }
