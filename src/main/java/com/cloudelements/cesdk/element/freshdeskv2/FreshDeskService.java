@@ -2,13 +2,12 @@ package com.cloudelements.cesdk.element.freshdeskv2;
 
 import com.cloudelements.cesdk.service.domain.BrokerConfig;
 import com.cloudelements.cesdk.service.domain.BrokerRequest;
-import com.cloudelements.cesdk.service.domain.ResourceOperation;
+import com.cloudelements.cesdk.service.domain.BrokerResourceOperation;
 import com.cloudelements.cesdk.service.exception.JsonParseException;
 import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.cloudelements.cesdk.util.HttpResponse;
 import com.cloudelements.cesdk.util.JacksonJsonUtil;
 import com.cloudelements.cesdk.util.ServiceConstants;
-import com.sun.corba.se.pept.broker.Broker;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -36,9 +35,9 @@ public class FreshDeskService extends HttpServlet {
     private static final String APPLICATION_JSON = "application/json";
     private static final String MESSAGE = "message";
     private static final String QUERY_PARAMETERS = "queryParameters";
-    private static final String RESOURCE = "resource";
-    private static final String METHOD = "method";
-    private static final String RESOURCE_OPERATION = "resourceOperation";
+    private static final String BROKER_RESOURCE = "brokerResource";
+    private static final String BROKER_METHOD = "brokerMethod";
+    private static final String BROKER_RESOURCE_OPERATION = "brokerResourceOperation";
     private static final String PAYLOAD = "payload";
     private static final String PATH_PARAMETERS = "pathParameters";
     private static final String ELEMENT_NEXT_PAGE_TOKEN = "elements-next-page-token";
@@ -60,7 +59,7 @@ public class FreshDeskService extends HttpServlet {
     private void initDeligate(BrokerRequest request) {
         freshdeskApiDeligate = new FreshdeskApiDeligate();
         Map<String, String> headers = new HashMap<>();
-        List<BrokerConfig> authConfigs = request.getAuthenticationConfigs();
+        List<BrokerConfig> authConfigs = request.getBrokerAuthenticationConfigs();
         for (BrokerConfig config: authConfigs) {
             headers.put(config.getKey(), config.getValue());
         }
@@ -147,7 +146,7 @@ public class FreshDeskService extends HttpServlet {
     }
 
     private HttpResponse dispatchRequest(BrokerRequest request) {
-        ResourceOperation method = request.getResourceOperation();
+        BrokerResourceOperation method = request.getBrokerResourceOperation();
         HttpResponse httpResponse = new HttpResponse();
         Map<String, Object> headers = new HashMap<>();
         Object response = null;
@@ -161,27 +160,27 @@ public class FreshDeskService extends HttpServlet {
                 httpResponse.setCode(200);
                 break;
             case CREATE:
-                response = freshdeskApiDeligate.create(request.getResource(), request.getBody());
+                response = freshdeskApiDeligate.create(request.getBrokerResource(), request.getBrokerBody());
                 httpResponse.setCode(201);
                 break;
             case RETRIEVE:
-                response = freshdeskApiDeligate.retrieve(request.getResource(), request.getBrokerPathParameters().getId());
+                response = freshdeskApiDeligate.retrieve(request.getBrokerResource(), request.getBrokerPathParameters().getId());
                 httpResponse.setCode(200);
                 break;
             case UPDATE:
-                response = freshdeskApiDeligate.update(request.getResource(), request.getBrokerPathParameters().getId(),
-                        request.getBody());
+                response = freshdeskApiDeligate.update(request.getBrokerResource(), request.getBrokerPathParameters().getId(),
+                        request.getBrokerBody());
                 httpResponse.setCode(200);
                 break;
             case DELETE:
-                freshdeskApiDeligate.delete(request.getResource(), request.getBrokerPathParameters().getId());
+                freshdeskApiDeligate.delete(request.getBrokerResource(), request.getBrokerPathParameters().getId());
                 httpResponse.setCode(200);
                 break;
             case SEARCH:
-                if (StringUtils.equalsIgnoreCase(request.getResource(), OBJECTS)) {
+                if (StringUtils.equalsIgnoreCase(request.getBrokerResource(), OBJECTS)) {
                     response = freshdeskApiDeligate.findObjects();
                 } else {
-                    response = freshdeskApiDeligate.find(request.getResource(), request.getBrokerExpressions());
+                    response = freshdeskApiDeligate.find(request.getBrokerResource(), request.getBrokerExpressions());
                     loadNextPageTokenHeader(headers, request);
                 }
                 httpResponse.setCode(200);
@@ -201,7 +200,7 @@ public class FreshDeskService extends HttpServlet {
     }
 
     private void loadNextPageTokenHeader(Map<String, Object> headers, BrokerRequest request) {
-        Map<String, Object> queryParams = request.getQueryParameters();
+        Map<String, Object> queryParams = request.getBrokerQueryParameters();
         JSONObject json = new JSONObject();
         int page = 0;
         int pageSize = 200;
@@ -239,8 +238,8 @@ public class FreshDeskService extends HttpServlet {
 
     private boolean validateRequestBody(Map<String, Object> body) {
         return body != null &&
-                body.containsKey(RESOURCE) &&
-                body.containsKey(METHOD) &&
-                body.containsKey(RESOURCE_OPERATION);
+                body.containsKey(BROKER_RESOURCE) &&
+                body.containsKey(BROKER_METHOD) &&
+                body.containsKey(BROKER_RESOURCE_OPERATION);
     }
 }

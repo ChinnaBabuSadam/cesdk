@@ -4,13 +4,15 @@ import java.io.Serializable;
 
 public class BrokerPagingDetails implements Serializable {
 
-    private static final long serialVersionUID = 8079787985385133962L;
+    private static final long serialVersionUID = -4732750508199398702L;
 
     int page;
 
     int pageSize;
 
     int nextPageToken;
+
+    public BrokerPagingDetails() {}
 
     public BrokerPagingDetails(int page, int pageSize, int nextPageToken) {
         this.page = page;

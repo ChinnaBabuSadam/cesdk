@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * CREATE, RETRIEVE, UPDATE, UPDATEALL, DELETE, SEARCH.   We call them CRUDS
  */
-public enum ResourceOperation implements Serializable {
+public enum BrokerResourceOperation implements Serializable {
 
     INIT("init"),
     CREATE("create"),
@@ -22,13 +22,13 @@ public enum ResourceOperation implements Serializable {
 
     String method;
 
-    ResourceOperation(String method) {
+    BrokerResourceOperation(String method) {
         this.method = method;
     }
 
-    public static ResourceOperation fromString(String val) {
+    public static BrokerResourceOperation fromString(String val) {
         if (StringUtils.isBlank(val)) { return null; }
-        for (ResourceOperation requestMethod : ResourceOperation.values()) {
+        for (BrokerResourceOperation requestMethod : BrokerResourceOperation.values()) {
             if (StringUtils.equalsIgnoreCase(requestMethod.toString(), val)) {
                 return requestMethod;
             }

@@ -1,7 +1,9 @@
 package com.cloudelements.cesdk.element.bamboohr;
 
+import com.cloudelements.cesdk.element.freshdeskv2.FreshdeskApiDeligate;
+import com.cloudelements.cesdk.service.domain.BrokerConfig;
 import com.cloudelements.cesdk.service.domain.BrokerRequest;
-import com.cloudelements.cesdk.service.domain.ResourceOperation;
+import com.cloudelements.cesdk.service.domain.BrokerResourceOperation;
 import com.cloudelements.cesdk.service.exception.JsonParseException;
 import com.cloudelements.cesdk.service.exception.ServiceException;
 import com.cloudelements.cesdk.util.HttpResponse;
@@ -39,18 +41,13 @@ import java.util.Map;
 public class BambooHRService extends HttpServlet {
     private static final String APPLICATION_JSON = "application/json";
     private static final String MESSAGE = "message";
-    private static final String QUERY_PARAMETERS = "queryParameters";
-    private static final String RESOURCE = "resource";
-    private static final String METHOD = "method";
-    private static final String RESOURCE_OPERATION = "resourceOperation";
-    private static final String PAYLOAD = "payload";
-    private static final String PATH_PARAMETERS = "pathParameters";
     private static final String ELEMENT_NEXT_PAGE_TOKEN = "elements-next-page-token";
     private static final String PAGE = "page";
     private static final String PAGE_SIZE = "pageSize";
     private static final String OBJECTS = "objects";
-    private static final String BODY = "body";
-
+    private static final String BROKER_RESOURCE = "brokerResource";
+    private static final String BROKER_METHOD = "brokerMethod";
+    private static final String BROKER_RESOURCE_OPERATION = "brokerResourceOperation";
     private static final String AUTHORIZATION = "Authorization";
 
     BambooHRApiDeligate bamboohrApiDeligate;
@@ -64,7 +61,11 @@ public class BambooHRService extends HttpServlet {
     private void initDeligate(BrokerRequest request) {
         bamboohrApiDeligate = new BambooHRApiDeligate();
         Map<String, String> headers = new HashMap<>();
-        headers.put(AUTHORIZATION, String.valueOf(request.getAuthenticationConfigs()));
+        List<BrokerConfig> authConfigs = request.getBrokerAuthenticationConfigs();
+        for (BrokerConfig config: authConfigs) {
+            headers.put(config.getKey(), config.getValue());
+        }
+
         headers.put(ServiceConstants.ACCEPT, APPLICATION_JSON);
         headers.put(ServiceConstants.CONTENT_TYPE, APPLICATION_JSON);
         bamboohrApiDeligate.setHeaders(headers);
@@ -144,7 +145,7 @@ public class BambooHRService extends HttpServlet {
          *                          List<BrokerConfig> authenticationConfigs, List<BrokerExpression> brokerExpressions)
          */
 
-        return new BrokerRequest(ResourceOperation.CREATE, HttpMethod.valueOf(httpServletRequest.getMethod()), null, null,
+        return new BrokerRequest(BrokerResourceOperation.CREATE, HttpMethod.valueOf(httpServletRequest.getMethod()), null, null,
                 headers, null, null, null, items, null, null, null);
     }
 
@@ -182,7 +183,7 @@ public class BambooHRService extends HttpServlet {
     }
 
     private HttpResponse dispatchRequest(BrokerRequest request) {
-        ResourceOperation method = request.getResourceOperation();
+        BrokerResourceOperation method = request.getBrokerResourceOperation();
         HttpResponse httpResponse = new HttpResponse();
         Map<String, Object> headers = new HashMap<>();
         Object response = null;
@@ -193,36 +194,36 @@ public class BambooHRService extends HttpServlet {
                 break;
             case CREATE:
                 if (request.isMultipartRequest()) {
-                    response = bamboohrApiDeligate.postFile("files", request.getMultipart(),
-                            request.getMultipartFormBody(), request.getHeaders());
+                    response = bamboohrApiDeligate.postFile("files", request.getBrokerMultipart(),
+                            request.getBrokerMultipartFormBody(), request.getBrokerHeaders());
                 } else {
-                    response = bamboohrApiDeligate.create(request.getResource(), request.getBody());
+                    response = bamboohrApiDeligate.create(request.getBrokerResource(), request.getBrokerBody());
                 }
                 httpResponse.setCode(201);
                 break;
             case RETRIEVE:
-                if (StringUtils.equalsIgnoreCase(request.getResource(), "files")) {
-                    response = bamboohrApiDeligate.retrieveFile(request.getResource(),
+                if (StringUtils.equalsIgnoreCase(request.getBrokerResource(), "files")) {
+                    response = bamboohrApiDeligate.retrieveFile(request.getBrokerResource(),
                             request.getBrokerPathParameters().getId());
                 } else {
-                    response = bamboohrApiDeligate.retrieve(request.getResource(), request.getBrokerPathParameters().getId());
+                    response = bamboohrApiDeligate.retrieve(request.getBrokerResource(), request.getBrokerPathParameters().getId());
                 }
                 httpResponse.setCode(200);
                 break;
             case UPDATE:
-                response = bamboohrApiDeligate.update(request.getResource(), request.getBrokerPathParameters().getId(),
-                        request.getBody());
+                response = bamboohrApiDeligate.update(request.getBrokerResource(), request.getBrokerPathParameters().getId(),
+                        request.getBrokerBody());
                 httpResponse.setCode(200);
                 break;
             case DELETE:
-                bamboohrApiDeligate.delete(request.getResource(), request.getBrokerPathParameters().getId());
+                bamboohrApiDeligate.delete(request.getBrokerResource(), request.getBrokerPathParameters().getId());
                 httpResponse.setCode(200);
                 break;
             case SEARCH:
-                if (StringUtils.equalsIgnoreCase(request.getResource(), OBJECTS)) {
+                if (StringUtils.equalsIgnoreCase(request.getBrokerResource(), OBJECTS)) {
                     response = bamboohrApiDeligate.findObjects();
                 } else {
-                    response = bamboohrApiDeligate.find(request.getResource(), request.getQueryParameters());
+                    response = bamboohrApiDeligate.find(request.getBrokerResource(), request.getBrokerQueryParameters());
                     loadNextPageTokenHeader(headers, request);
                 }
                 httpResponse.setCode(200);
@@ -242,7 +243,7 @@ public class BambooHRService extends HttpServlet {
     }
 
     private void loadNextPageTokenHeader(Map<String, Object> headers, BrokerRequest request) {
-        Map<String, Object> queryParams = request.getQueryParameters();
+        Map<String, Object> queryParams = request.getBrokerQueryParameters();
         JSONObject json = new JSONObject();
         int page = 0;
         int pageSize = 200;
@@ -278,8 +279,8 @@ public class BambooHRService extends HttpServlet {
 
     private boolean validateRequestBody(Map<String, Object> body) {
         return body != null &&
-                body.containsKey(RESOURCE) &&
-                body.containsKey(METHOD) &&
-                body.containsKey(RESOURCE_OPERATION);
+                body.containsKey(BROKER_RESOURCE) &&
+                body.containsKey(BROKER_METHOD) &&
+                body.containsKey(BROKER_RESOURCE_OPERATION);
     }
 }
