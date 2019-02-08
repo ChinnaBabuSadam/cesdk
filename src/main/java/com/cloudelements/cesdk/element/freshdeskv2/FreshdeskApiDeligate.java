@@ -49,7 +49,7 @@ public class FreshdeskApiDeligate extends AbstractElementService {
     public List<BrokerConfig> refresh() {
 
         List<BrokerConfig> configs = new ArrayList<>();
-        BrokerConfig config = new BrokerConfig( "Basic cGNUbFFSWEFnMVlXZHhEd3N4SVg6WA==", "authHeader", true);
+        BrokerConfig config = new BrokerConfig( "Basic XXX==", "Authorization", true);
         configs.add(config);
 
         return configs;
@@ -120,7 +120,7 @@ public class FreshdeskApiDeligate extends AbstractElementService {
         Map query = new HashMap<>();
         if (brokerExpressions != null) {
             for (BrokerExpression brokerExpression: brokerExpressions) {
-                query.put(brokerExpression.getKey(), brokerExpression.getValue());
+                query.put(brokerExpression.getAttribute(), brokerExpression.getValue());
             }
         }
 

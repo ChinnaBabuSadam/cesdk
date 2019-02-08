@@ -5,24 +5,24 @@ import java.io.Serializable;
 public class BrokerExpression implements Serializable {
 
     private static final long serialVersionUID = -863439174489160612L;
-    String key;
+    String attribute;
     String value;
     ExpressionOperator operator;
 
     public BrokerExpression() {}
 
-    public BrokerExpression(String key, String value, ExpressionOperator operator) {
-        this.key = key;
+    public BrokerExpression(String attribute, String value, ExpressionOperator operator) {
+        this.attribute = attribute;
         this.value = value;
         this.operator = operator;
     }
 
-    public String getKey() {
-        return key;
+    public String getAttribute() {
+        return attribute;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setAttribute(String attribute) {
+        this.attribute = attribute;
     }
 
     public Object getValue() {

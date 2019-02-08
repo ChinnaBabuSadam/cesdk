@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class BambooHRApiDeligate extends AbstractElementService {
 
-    private static final String BASE_URL = "https://api.bamboohr.com/api/gateway.php/naga47/v1";
+    private static final String BASE_URL = "https://api.bamboohr.com/api/gateway.php/cbinc/v1";
     private static final String RESOURCE_METADATA_DIR = "metadata";
     private Map<String, String> headers;
 

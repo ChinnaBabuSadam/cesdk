@@ -129,6 +129,9 @@ public class BambooHRService extends HttpServlet {
     }
 
     private BrokerRequest constructMultipartRequest(HttpServletRequest httpServletRequest, List<FileItem> items) {
+
+        BrokerRequest request = null;
+
         Enumeration<String> headerNames = httpServletRequest.getHeaderNames();
         Map<String, Object> headers = new HashMap<>();
         if (headerNames != null) {
@@ -137,16 +140,30 @@ public class BambooHRService extends HttpServlet {
                 headers.put(headerKey, httpServletRequest.getHeader(headerKey));
             }
         }
-        /**
-         * public BrokerRequest(ResourceOperation resourceOperation, HttpMethod method, String resource, Map body,
-         *                          Map<String, Object> headers, Map<String, Object> queryParameters,
-         *                          BrokerPathParameters brokerPathParameters, BrokerPagingDetails brokerPagingDetails,
-         *                          List<FileItem> multipart, Map<String, Object> multipartFormBody,
-         *                          List<BrokerConfig> authenticationConfigs, List<BrokerExpression> brokerExpressions)
-         */
 
-        return new BrokerRequest(BrokerResourceOperation.CREATE, HttpMethod.valueOf(httpServletRequest.getMethod()), null, null,
-                headers, null, null, null, items, null, null, null);
+        FileItem brokerRequestItem = null;
+        for (FileItem fi : items) {
+            if (fi != null && StringUtils.equalsIgnoreCase(fi.getFieldName(), "brokerRequest")) {
+                try {
+                    brokerRequestItem = fi;
+                    String brokerStirng = IOUtils.toString(fi.getInputStream(), ServiceConstants.UTF_8);
+                    Map<String, Object> payload = JacksonJsonUtil.convertStringToMap(brokerStirng);
+                    if (!validateRequestBody(payload)) {
+                        throw new ServiceException(HttpStatus.BAD_REQUEST, "Insufficient data");
+                    }
+                    request = constructRequest(httpServletRequest, payload);
+                    break;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        //Removing tht `brokerRequest` from multipart list
+        items.remove(brokerRequestItem);
+        request.setBrokerHeaders(headers);
+        request.setBrokerMultipart(items);
+        return request;
     }
 
     private void writeToOutputStream(HttpServletResponse httpServletResponse, HttpResponse response) {
