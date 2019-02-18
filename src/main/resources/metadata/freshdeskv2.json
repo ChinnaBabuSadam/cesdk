@@ -154,10 +154,10 @@
                     "application/json"
                 ],
                 "requestParameters": {
-                    "email": {
+                    "active": {
                         "in": "query",
                         "required": false,
-                        "type": "string"
+                        "type": "boolean"
                     }
                 }
             },
@@ -310,7 +310,38 @@
             "SEARCH": {
                 "produces": [
                     "application/json"
-                ]
+                ],
+                "requestParameters": {
+                    "sampleObject": {
+                        "in": "form",
+                        "required": true,
+                        "schema": {
+                            "objectName": "sample",
+                            "fields": [
+                                {
+                                    "vendorPath": "active",
+                                    "type": "boolean"
+                                },
+                                {
+                                    "vendorPath": "address",
+                                    "type": "string"
+                                },
+                                {
+                                    "vendorPath": "avatar.avatar_url",
+                                    "type": "string"
+                                },
+                                {
+                                    "vendorPath": "avatar.content_type",
+                                    "type": "string"
+                                },
+                                {
+                                    "vendorPath": "avatar.created_at",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                }
             },
             "RETRIEVE": {
                 "produces": [
